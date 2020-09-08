@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ManagerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IManagerService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IManagerNotificationService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Configuration" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IManagerService_StartService_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartService" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_StartService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_StartService_ServiceNotExistErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q1:ServiceNotExistError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_StopService_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopService" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_StopService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_StopService_ServiceNotExistErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q2:ServiceNotExistError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RestartService_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestartService" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RestartService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RestartService_ServiceNotExistErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q3:ServiceNotExistError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetConfiguration_ServiceFaultedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q4:ServiceFaultedError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetConfiguration_ManagerServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q5:ManagerServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetConfiguration_ServiceNotExistErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q6:ServiceNotExistError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetConfiguration_ServiceMissedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q7:ServiceMissedError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetConfiguration_ServiceNotExistErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q8:ServiceNotExistError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetConfiguration_ServiceFaultedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q9:ServiceFaultedError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetConfiguration_ManagerServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q10:ManagerServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetConfiguration_ServiceMissedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" name="detail" element="q11:ServiceMissedError" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetServicesInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesInformation" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetServicesInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetServicesConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetServicesConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetServicesConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetServicesConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RemoveService_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveService" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RemoveService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetServiceConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SetServiceConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SaveServicesConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveServicesConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_SaveServicesConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveServicesConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_DumpConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:DumpConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_DumpConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DumpConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RestoreConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_RestoreConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetAvailableDeviceServers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDeviceServers" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetAvailableDeviceServers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDeviceServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetServiceVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceVersion" />
+  </wsdl:message>
+  <wsdl:message name="IManagerService_GetServiceVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_Subscribe_InputMessage">
+    <wsdl:part name="parameters" element="tns:Subscribe" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_Subscribe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_Unsubscribe_InputMessage">
+    <wsdl:part name="parameters" element="tns:Unsubscribe" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_Unsubscribe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_DumpConfigurationAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:DumpConfigurationAsync" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_DumpConfigurationAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DumpConfigurationAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_RestoreConfigurationAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreConfigurationAsync" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_RestoreConfigurationAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreConfigurationAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_ServiceStateChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ServiceStateChanged" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_ConfigurationDumpCompleted_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ConfigurationDumpCompleted" />
+  </wsdl:message>
+  <wsdl:message name="IManagerNotificationService_ConfigurationRestoreCompleted_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ConfigurationRestoreCompleted" />
+  </wsdl:message>
+  <wsdl:portType name="IManagerService">
+    <wsdl:operation name="StartService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/StartService" message="tns:IManagerService_StartService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/StartServiceResponse" message="tns:IManagerService_StartService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/StartServiceServiceNotExistErrorFault" name="ServiceNotExistErrorFault" message="tns:IManagerService_StartService_ServiceNotExistErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/StopService" message="tns:IManagerService_StopService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/StopServiceResponse" message="tns:IManagerService_StopService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/StopServiceServiceNotExistErrorFault" name="ServiceNotExistErrorFault" message="tns:IManagerService_StopService_ServiceNotExistErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/RestartService" message="tns:IManagerService_RestartService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/RestartServiceResponse" message="tns:IManagerService_RestartService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/RestartServiceServiceNotExistErrorFault" name="ServiceNotExistErrorFault" message="tns:IManagerService_RestartService_ServiceNotExistErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/GetConfiguration" message="tns:IManagerService_GetConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/GetConfigurationResponse" message="tns:IManagerService_GetConfiguration_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/GetConfigurationServiceFaultedErrorFault" name="ServiceFaultedErrorFault" message="tns:IManagerService_GetConfiguration_ServiceFaultedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/GetConfigurationManagerServiceErrorFault" name="ManagerServiceErrorFault" message="tns:IManagerService_GetConfiguration_ManagerServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/GetConfigurationServiceNotExistErrorFault" name="ServiceNotExistErrorFault" message="tns:IManagerService_GetConfiguration_ServiceNotExistErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/GetConfigurationServiceMissedErrorFault" name="ServiceMissedErrorFault" message="tns:IManagerService_GetConfiguration_ServiceMissedErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/SetConfiguration" message="tns:IManagerService_SetConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/SetConfigurationResponse" message="tns:IManagerService_SetConfiguration_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/SetConfigurationServiceNotExistErrorFault" name="ServiceNotExistErrorFault" message="tns:IManagerService_SetConfiguration_ServiceNotExistErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/SetConfigurationServiceFaultedErrorFault" name="ServiceFaultedErrorFault" message="tns:IManagerService_SetConfiguration_ServiceFaultedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/SetConfigurationManagerServiceErrorFault" name="ManagerServiceErrorFault" message="tns:IManagerService_SetConfiguration_ManagerServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagerService/SetConfigurationServiceMissedErrorFault" name="ServiceMissedErrorFault" message="tns:IManagerService_SetConfiguration_ServiceMissedErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/GetServicesInformation" message="tns:IManagerService_GetServicesInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/GetServicesInformationResponse" message="tns:IManagerService_GetServicesInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetServicesConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/SetServicesConfiguration" message="tns:IManagerService_SetServicesConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/SetServicesConfigurationResponse" message="tns:IManagerService_SetServicesConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/RemoveService" message="tns:IManagerService_RemoveService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/RemoveServiceResponse" message="tns:IManagerService_RemoveService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetServiceConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/SetServiceConfiguration" message="tns:IManagerService_SetServiceConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/SetServiceConfigurationResponse" message="tns:IManagerService_SetServiceConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveServicesConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/SaveServicesConfiguration" message="tns:IManagerService_SaveServicesConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/SaveServicesConfigurationResponse" message="tns:IManagerService_SaveServicesConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DumpConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/DumpConfiguration" message="tns:IManagerService_DumpConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/DumpConfigurationResponse" message="tns:IManagerService_DumpConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/RestoreConfiguration" message="tns:IManagerService_RestoreConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/RestoreConfigurationResponse" message="tns:IManagerService_RestoreConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDeviceServers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/GetAvailableDeviceServers" message="tns:IManagerService_GetAvailableDeviceServers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/GetAvailableDeviceServersResponse" message="tns:IManagerService_GetAvailableDeviceServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerService/GetServiceVersion" message="tns:IManagerService_GetServiceVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerService/GetServiceVersionResponse" message="tns:IManagerService_GetServiceVersion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IManagerNotificationService">
+    <wsdl:operation name="Subscribe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerNotificationService/Subscribe" message="tns:IManagerNotificationService_Subscribe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/SubscribeResponse" message="tns:IManagerNotificationService_Subscribe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerNotificationService/Unsubscribe" message="tns:IManagerNotificationService_Unsubscribe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/UnsubscribeResponse" message="tns:IManagerNotificationService_Unsubscribe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DumpConfigurationAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerNotificationService/DumpConfigurationAsync" message="tns:IManagerNotificationService_DumpConfigurationAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/DumpConfigurationAsyncResponse" message="tns:IManagerNotificationService_DumpConfigurationAsync_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreConfigurationAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManagerNotificationService/RestoreConfigurationAsync" message="tns:IManagerNotificationService_RestoreConfigurationAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/RestoreConfigurationAsyncResponse" message="tns:IManagerNotificationService_RestoreConfigurationAsync_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ServiceStateChanged">
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/ServiceStateChanged" message="tns:IManagerNotificationService_ServiceStateChanged_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurationDumpCompleted">
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/ConfigurationDumpCompleted" message="tns:IManagerNotificationService_ConfigurationDumpCompleted_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurationRestoreCompleted">
+      <wsdl:output wsaw:Action="http://tempuri.org/IManagerNotificationService/ConfigurationRestoreCompleted" message="tns:IManagerNotificationService_ConfigurationRestoreCompleted_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IManagerService" type="tns:IManagerService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IManagerService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="StartService">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/StartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotExistErrorFault">
+        <soap12:fault use="literal" name="ServiceNotExistErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/StopService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotExistErrorFault">
+        <soap12:fault use="literal" name="ServiceNotExistErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/RestartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotExistErrorFault">
+        <soap12:fault use="literal" name="ServiceNotExistErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/GetConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultedErrorFault">
+        <soap12:fault use="literal" name="ServiceFaultedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ManagerServiceErrorFault">
+        <soap12:fault use="literal" name="ManagerServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceNotExistErrorFault">
+        <soap12:fault use="literal" name="ServiceNotExistErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceMissedErrorFault">
+        <soap12:fault use="literal" name="ServiceMissedErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/SetConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotExistErrorFault">
+        <soap12:fault use="literal" name="ServiceNotExistErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceFaultedErrorFault">
+        <soap12:fault use="literal" name="ServiceFaultedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ManagerServiceErrorFault">
+        <soap12:fault use="literal" name="ManagerServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceMissedErrorFault">
+        <soap12:fault use="literal" name="ServiceMissedErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesInformation">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/GetServicesInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetServicesConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/SetServicesConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveService">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/RemoveService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/SetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveServicesConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/SaveServicesConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DumpConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/DumpConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/RestoreConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDeviceServers">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/GetAvailableDeviceServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceVersion">
+      <soap12:operation soapAction="http://tempuri.org/IManagerService/GetServiceVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IManagerNotificationService" type="tns:IManagerNotificationService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IManagerNotificationService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Subscribe">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/Subscribe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/Unsubscribe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DumpConfigurationAsync">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/DumpConfigurationAsync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreConfigurationAsync">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/RestoreConfigurationAsync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServiceStateChanged">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/ServiceStateChanged" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurationDumpCompleted">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/ConfigurationDumpCompleted" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurationRestoreCompleted">
+      <soap12:operation soapAction="http://tempuri.org/IManagerNotificationService/ConfigurationRestoreCompleted" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManagerService">
+    <wsdl:port name="NetTcpBinding_IManagerService" binding="tns:NetTcpBinding_IManagerService">
+      <soap12:address location="net.tcp://localhost:10060/Harris.Automation.ADC.Services.ManagerService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:10060/Harris.Automation.ADC.Services.ManagerService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IManagerNotificationService" binding="tns:NetTcpBinding_IManagerNotificationService">
+      <soap12:address location="net.tcp://localhost:10060/Harris.Automation.ADC.Services.ManagerAsyncService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:10060/Harris.Automation.ADC.Services.ManagerAsyncService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

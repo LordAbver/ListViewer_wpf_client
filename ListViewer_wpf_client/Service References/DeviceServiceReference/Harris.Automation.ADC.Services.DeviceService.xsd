@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DeviceServiceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceServiceError" nillable="true" type="tns:DeviceServiceError" />
+  <xs:complexType name="DeviceError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeviceError" nillable="true" type="tns:DeviceError" />
+  <xs:complexType name="DeviceNotExistError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeviceNotExistError" nillable="true" type="tns:DeviceNotExistError" />
+  <xs:complexType name="DeviceListenerError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeviceListenerError" nillable="true" type="tns:DeviceListenerError" />
+</xs:schema>

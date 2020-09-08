@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="DevType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Empty" />
+      <xs:enumeration value="VTR" />
+      <xs:enumeration value="LMS" />
+      <xs:enumeration value="BCR" />
+      <xs:enumeration value="Switcher" />
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="GPI" />
+      <xs:enumeration value="Disk" />
+      <xs:enumeration value="Annotator" />
+      <xs:enumeration value="USD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DevType" nillable="true" type="tns:DevType" />
+  <xs:simpleType name="OtherMediaDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Digi360" />
+      <xs:enumeration value="SonySSCU1000" />
+      <xs:enumeration value="LeitchSS" />
+      <xs:enumeration value="ChyronMAX" />
+      <xs:enumeration value="ChyronCODI" />
+      <xs:enumeration value="PrestoCG" />
+      <xs:enumeration value="BTSVidiFont" />
+      <xs:enumeration value="QuantelSS" />
+      <xs:enumeration value="VideoDisk" />
+      <xs:enumeration value="DemoVideoDisk" />
+      <xs:enumeration value="ProfileVideoDisk" />
+      <xs:enumeration value="CBVideoDisk" />
+      <xs:enumeration value="DCBVideoDisk" />
+      <xs:enumeration value="SCCom" />
+      <xs:enumeration value="QuantaDelta" />
+      <xs:enumeration value="ChyronScribe" />
+      <xs:enumeration value="SonyMiniDisk" />
+      <xs:enumeration value="D2PortVideoDisk" />
+      <xs:enumeration value="BrontoSS" />
+      <xs:enumeration value="ChyronMaxine" />
+      <xs:enumeration value="MediaGPIDevice" />
+      <xs:enumeration value="BFETimer" />
+      <xs:enumeration value="D3PortVideoDisk" />
+      <xs:enumeration value="D4PortVideoDisk" />
+      <xs:enumeration value="D5PortVideoDisk" />
+      <xs:enumeration value="Demo5PortVideoDisk" />
+      <xs:enumeration value="D8PortVideoDisk" />
+      <xs:enumeration value="Cavena4Ch" />
+      <xs:enumeration value="Ess3SS" />
+      <xs:enumeration value="FlashFileSS" />
+      <xs:enumeration value="DPM700" />
+      <xs:enumeration value="ClipBoxVideoDisk" />
+      <xs:enumeration value="IRDeto" />
+      <xs:enumeration value="Wagner" />
+      <xs:enumeration value="IBTVPS9601" />
+      <xs:enumeration value="SerCom10H" />
+      <xs:enumeration value="Ess10ChDevice" />
+      <xs:enumeration value="LeitchLG" />
+      <xs:enumeration value="D10PortVideoDisk" />
+      <xs:enumeration value="OxtelKeyer" />
+      <xs:enumeration value="EncoDad" />
+      <xs:enumeration value="IBTVPS9701" />
+      <xs:enumeration value="TextCodi" />
+      <xs:enumeration value="CollageCG" />
+      <xs:enumeration value="InfiniteCG" />
+      <xs:enumeration value="TypeDekoCG" />
+      <xs:enumeration value="ScreenStSvr2" />
+      <xs:enumeration value="PictureBox2CSS" />
+      <xs:enumeration value="AstonCG" />
+      <xs:enumeration value="IBTVPS9702" />
+      <xs:enumeration value="ImageStoreSS" />
+      <xs:enumeration value="HPBufferVideoDisk" />
+      <xs:enumeration value="OrbanAirtimeAC" />
+      <xs:enumeration value="FlashFileSS2" />
+      <xs:enumeration value="ChyronMAX2" />
+      <xs:enumeration value="LeitchSS2" />
+      <xs:enumeration value="ThomsonMPEG" />
+      <xs:enumeration value="VLIDVideoDisk" />
+      <xs:enumeration value="MediaRequester" />
+      <xs:enumeration value="MediaDistributor" />
+      <xs:enumeration value="AvalonArchive" />
+      <xs:enumeration value="MediaRDRO" />
+      <xs:enumeration value="ClipBoxCacheDisk" />
+      <xs:enumeration value="CPTTimer" />
+      <xs:enumeration value="STAS10Disk" />
+      <xs:enumeration value="MAV70Disk" />
+      <xs:enumeration value="DatabaseDistributor" />
+      <xs:enumeration value="MultiRequester" />
+      <xs:enumeration value="DiskArchive" />
+      <xs:enumeration value="CharismaDVE" />
+      <xs:enumeration value="LGA100Logo" />
+      <xs:enumeration value="Evertz8074Encoder" />
+      <xs:enumeration value="SGIVideoDisk" />
+      <xs:enumeration value="BugBurnerSS" />
+      <xs:enumeration value="SONYDME7000DVE" />
+      <xs:enumeration value="NorpakTES5Encoder" />
+      <xs:enumeration value="SonyMDB3" />
+      <xs:enumeration value="IBTVPS9703" />
+      <xs:enumeration value="SonyNewsBase" />
+      <xs:enumeration value="EEGEN470Encoder" />
+      <xs:enumeration value="SpencerSS" />
+      <xs:enumeration value="ProxyFTP" />
+      <xs:enumeration value="NDCPDevice" />
+      <xs:enumeration value="VLIDProfileDisk" />
+      <xs:enumeration value="VLD10PortVideoDisk" />
+      <xs:enumeration value="VLD8PortVideoDisk" />
+      <xs:enumeration value="VLD5PortVideoDisk" />
+      <xs:enumeration value="VLD4PortVideoDisk" />
+      <xs:enumeration value="VLD3PortVideoDisk" />
+      <xs:enumeration value="VLD2PortVideoDisk" />
+      <xs:enumeration value="LeitchTT" />
+      <xs:enumeration value="SysMediaPDC" />
+      <xs:enumeration value="ChyronDuet2C" />
+      <xs:enumeration value="ChyronDuet" />
+      <xs:enumeration value="SAVLG50DK" />
+      <xs:enumeration value="DavidMultiplayer" />
+      <xs:enumeration value="ReservedOMD96" />
+      <xs:enumeration value="LGA200Logo" />
+      <xs:enumeration value="FPDVastBitScream" />
+      <xs:enumeration value="MissingMediaGPIDevice" />
+      <xs:enumeration value="QuartzLGDVE" />
+      <xs:enumeration value="E9625LG" />
+      <xs:enumeration value="ChMediaRequester" />
+      <xs:enumeration value="AyatoDevice" />
+      <xs:enumeration value="FlipFactory" />
+      <xs:enumeration value="LeitchLGMO2" />
+      <xs:enumeration value="GenericSerCom" />
+      <xs:enumeration value="GSDevices" />
+      <xs:enumeration value="ChyronDuetLEx" />
+      <xs:enumeration value="DemoMediaDevice" />
+      <xs:enumeration value="NDCPVirtualDevice" />
+      <xs:enumeration value="LeitchOpusSubDevice" />
+      <xs:enumeration value="MCLitePesaSubDevice" />
+      <xs:enumeration value="VPSAlbrecht" />
+      <xs:enumeration value="EvertzMVP" />
+      <xs:enumeration value="EvertzMVP10H" />
+      <xs:enumeration value="FABSubtitler4Ch" />
+      <xs:enumeration value="E9625LGADiskStandalone" />
+      <xs:enumeration value="ImgIntuition" />
+      <xs:enumeration value="Reserved119" />
+      <xs:enumeration value="VirtualVideoDisk" />
+      <xs:enumeration value="LeitchDTP" />
+      <xs:enumeration value="LeitchDTP20" />
+      <xs:enumeration value="DaletMD" />
+      <xs:enumeration value="FactumDBS100" />
+      <xs:enumeration value="PPClarity" />
+      <xs:enumeration value="VSMSubDevice" />
+      <xs:enumeration value="DumbDevice" />
+      <xs:enumeration value="InscriberStrata" />
+      <xs:enumeration value="E9725LGLongName" />
+      <xs:enumeration value="LeitchMCapture" />
+      <xs:enumeration value="EvertzQMCDVELogo" />
+      <xs:enumeration value="ImageStore750" />
+      <xs:enumeration value="NexioDisk" />
+      <xs:enumeration value="PipeVideoDisk" />
+      <xs:enumeration value="K2AMPDisk" />
+      <xs:enumeration value="K2AMPDiskTCPIP" />
+      <xs:enumeration value="K2AMPDiskRS422" />
+      <xs:enumeration value="DuetHyperX" />
+      <xs:enumeration value="AMPLogo" />
+      <xs:enumeration value="PMIntuiSubDev" />
+      <xs:enumeration value="DTP_Insertion" />
+      <xs:enumeration value="IconMasterSubDev" />
+      <xs:enumeration value="CHYRDUET2CLEG" />
+      <xs:enumeration value="ScreenST24" />
+      <xs:enumeration value="BreakawayDevice" />
+      <xs:enumeration value="OmneonSpectrumDisk" />
+      <xs:enumeration value="IconStationXML" />
+      <xs:enumeration value="ExtenGPIdev" />
+      <xs:enumeration value="VPDDevice" />
+      <xs:enumeration value="MaestroMSD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OtherMediaDevices" nillable="true" type="tns:OtherMediaDevices" />
+  <xs:simpleType name="MediaStateType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoChange" />
+      <xs:enumeration value="InWithID" />
+      <xs:enumeration value="InWithoutID" />
+      <xs:enumeration value="InInternalID" />
+      <xs:enumeration value="Out" />
+      <xs:enumeration value="OutToStorage" />
+      <xs:enumeration value="Cued" />
+      <xs:enumeration value="Cueing" />
+      <xs:enumeration value="Idle" />
+      <xs:enumeration value="Threading" />
+      <xs:enumeration value="Unthreading" />
+      <xs:enumeration value="TensionedOn" />
+      <xs:enumeration value="TensionedOff" />
+      <xs:enumeration value="Playing" />
+      <xs:enumeration value="Recording" />
+      <xs:enumeration value="ReadyForStorage" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MediaStateType" nillable="true" type="tns:MediaStateType" />
+  <xs:complexType name="ArrayOfRunStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunStatus" type="tns:RunStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunStatus" nillable="true" type="tns:ArrayOfRunStatus" />
+  <xs:simpleType name="RunStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DonePlay" />
+      <xs:enumeration value="Switch" />
+      <xs:enumeration value="PlayIssued" />
+      <xs:enumeration value="Preroll" />
+      <xs:enumeration value="DoneRecord" />
+      <xs:enumeration value="Postroll" />
+      <xs:enumeration value="Reserved" />
+      <xs:enumeration value="EditOn" />
+      <xs:enumeration value="EditOff" />
+      <xs:enumeration value="DoneSkipped" />
+      <xs:enumeration value="Reserved11" />
+      <xs:enumeration value="Recissued" />
+      <xs:enumeration value="Reserved13" />
+      <xs:enumeration value="Reserved14" />
+      <xs:enumeration value="Reserved15" />
+      <xs:enumeration value="Reserved16" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RunStatus" nillable="true" type="tns:RunStatus" />
+  <xs:simpleType name="Status">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Local" />
+      <xs:enumeration value="Unthreaded" />
+      <xs:enumeration value="Eject" />
+      <xs:enumeration value="Cued" />
+      <xs:enumeration value="Stop" />
+      <xs:enumeration value="Stopping" />
+      <xs:enumeration value="Rewind" />
+      <xs:enumeration value="Forward" />
+      <xs:enumeration value="Record" />
+      <xs:enumeration value="UbPlay" />
+      <xs:enumeration value="Play" />
+      <xs:enumeration value="ForwardShuttle" />
+      <xs:enumeration value="RewindShuttle" />
+      <xs:enumeration value="ForwardVar" />
+      <xs:enumeration value="RewindVar" />
+      <xs:enumeration value="ForwardJog" />
+      <xs:enumeration value="RewindJog" />
+      <xs:enumeration value="Slow" />
+      <xs:enumeration value="Cueing" />
+      <xs:enumeration value="Cue" />
+      <xs:enumeration value="TensionRel" />
+      <xs:enumeration value="TensionOn" />
+      <xs:enumeration value="Still" />
+      <xs:enumeration value="Reject" />
+      <xs:enumeration value="Thread" />
+      <xs:enumeration value="Inject" />
+      <xs:enumeration value="UbReadDone" />
+      <xs:enumeration value="StandbyOn" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="RewindEject" />
+      <xs:enumeration value="Unknown1" />
+      <xs:enumeration value="NoVTR" />
+      <xs:enumeration value="TransitionIt" />
+      <xs:enumeration value="PreviewIt" />
+      <xs:enumeration value="ThreadVTR" />
+      <xs:enumeration value="LMSThread" />
+      <xs:enumeration value="SendVTRToBin" />
+      <xs:enumeration value="ExTake" />
+      <xs:enumeration value="MarkEjectBin" />
+      <xs:enumeration value="EjectBin" />
+      <xs:enumeration value="LMSSysPreset" />
+      <xs:enumeration value="LMSSysReset" />
+      <xs:enumeration value="LMSTimeSet" />
+      <xs:enumeration value="LMSEleInit" />
+      <xs:enumeration value="LMSBCRead" />
+      <xs:enumeration value="LMSIDRead" />
+      <xs:enumeration value="LMSBinStatus" />
+      <xs:enumeration value="LMSVTRRead" />
+      <xs:enumeration value="LMSDoThread" />
+      <xs:enumeration value="LMSDoPlay" />
+      <xs:enumeration value="LMSOnAir" />
+      <xs:enumeration value="LMSBinLight" />
+      <xs:enumeration value="LMSBCReadMove" />
+      <xs:enumeration value="LMSSwitchInit" />
+      <xs:enumeration value="LMSSysStat" />
+      <xs:enumeration value="LMSSysVTRReset" />
+      <xs:enumeration value="VTRNoCom" />
+      <xs:enumeration value="VTRPulled" />
+      <xs:enumeration value="ThreadError" />
+      <xs:enumeration value="ExTakeColor" />
+      <xs:enumeration value="EditOn" />
+      <xs:enumeration value="EditOff" />
+      <xs:enumeration value="TMSelect" />
+      <xs:enumeration value="PresetSelect" />
+      <xs:enumeration value="ExTakeInit" />
+      <xs:enumeration value="LMSDisplay" />
+      <xs:enumeration value="LMSCancelCue" />
+      <xs:enumeration value="GPISetReset" />
+      <xs:enumeration value="PresetIt" />
+      <xs:enumeration value="LMSBinReset" />
+      <xs:enumeration value="LMSThreadReturn" />
+      <xs:enumeration value="CueWithData" />
+      <xs:enumeration value="PlayNoThread" />
+      <xs:enumeration value="SlowNoThread" />
+      <xs:enumeration value="StopNoThread" />
+      <xs:enumeration value="StillNoThread" />
+      <xs:enumeration value="LMSMoveElevator" />
+      <xs:enumeration value="TSO" />
+      <xs:enumeration value="PurgeHiddenBins" />
+      <xs:enumeration value="RemoveAllStorage" />
+      <xs:enumeration value="ADCNetError" />
+      <xs:enumeration value="TCGen2TCTape" />
+      <xs:enumeration value="PresetTCGen" />
+      <xs:enumeration value="LoadUbid" />
+      <xs:enumeration value="RecordCue" />
+      <xs:enumeration value="PreviewPlay" />
+      <xs:enumeration value="ExTakeName" />
+      <xs:enumeration value="Busy" />
+      <xs:enumeration value="Offline" />
+      <xs:enumeration value="DeleteStorageByID" />
+      <xs:enumeration value="ProtectStorageByID" />
+      <xs:enumeration value="UnprotectStorageByID" />
+      <xs:enumeration value="CacheNextStorage" />
+      <xs:enumeration value="DeviceInitializing" />
+      <xs:enumeration value="SpaceRemainingCommand" />
+      <xs:enumeration value="SizeOfIDCommand" />
+      <xs:enumeration value="DeleteProtectIDCommand" />
+      <xs:enumeration value="UndeleteProtectIDCommand" />
+      <xs:enumeration value="IDRequestCommand" />
+      <xs:enumeration value="RenameIDCommand" />
+      <xs:enumeration value="NewCopyOfIDCommand" />
+      <xs:enumeration value="DeleteVideoFileCommand" />
+      <xs:enumeration value="CopyVideoFileCommand" />
+      <xs:enumeration value="DeleteVideoFileFromDiskCommand" />
+      <xs:enumeration value="AbortCopyVideoFileCommand" />
+      <xs:enumeration value="SetSOMCommand" />
+      <xs:enumeration value="SetDurationCommand" />
+      <xs:enumeration value="GetFromArchiveCommand" />
+      <xs:enumeration value="SentToArchiveCommand" />
+      <xs:enumeration value="DeleteFromArchiveCommand" />
+      <xs:enumeration value="ReadUserBits" />
+      <xs:enumeration value="CueWithIDData" />
+      <xs:enumeration value="DoBuzzer" />
+      <xs:enumeration value="GetSegmentID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:simpleType name="BCRDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SonyBVBR10" />
+      <xs:enumeration value="PCWAND30" />
+      <xs:enumeration value="LocalBCReader" />
+      <xs:enumeration value="UniTech830" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BCRDevices" nillable="true" type="tns:BCRDevices" />
+  <xs:simpleType name="BCRStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="Read" />
+      <xs:enumeration value="Read1" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Unknown1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BCRStatus" nillable="true" type="tns:BCRStatus" />
+  <xs:simpleType name="GPIDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GPISwitchDevice" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GPIDevices" nillable="true" type="tns:GPIDevices" />
+  <xs:simpleType name="GPIStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="Unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GPIStatus" nillable="true" type="tns:GPIStatus" />
+  <xs:simpleType name="AnnotatorDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LAN" />
+      <xs:enumeration value="Demo" />
+      <xs:enumeration value="GPI" />
+      <xs:enumeration value="GPIA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AnnotatorDevices" nillable="true" type="tns:AnnotatorDevices" />
+  <xs:simpleType name="AnnotatorStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Null" />
+      <xs:enumeration value="NoSerial" />
+      <xs:enumeration value="Fault" />
+      <xs:enumeration value="NoDevice" />
+      <xs:enumeration value="Black" />
+      <xs:enumeration value="CB" />
+      <xs:enumeration value="Program" />
+      <xs:enumeration value="BlackAudio" />
+      <xs:enumeration value="CBAudio" />
+      <xs:enumeration value="ProgramAudio" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AnnotatorStatus" nillable="true" type="tns:AnnotatorStatus" />
+  <xs:simpleType name="SwitchDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DatatekD4300A" />
+      <xs:enumeration value="GVG100" />
+      <xs:enumeration value="MCS2000" />
+      <xs:enumeration value="GVGTenXL" />
+      <xs:enumeration value="GVGMaster21" />
+      <xs:enumeration value="GVGHorizon" />
+      <xs:enumeration value="GVG440" />
+      <xs:enumeration value="GVG7000" />
+      <xs:enumeration value="GVG20Ten" />
+      <xs:enumeration value="USI160" />
+      <xs:enumeration value="DATA2400" />
+      <xs:enumeration value="Relay8X1" />
+      <xs:enumeration value="SonyRouter" />
+      <xs:enumeration value="MCS3000" />
+      <xs:enumeration value="USI500" />
+      <xs:enumeration value="ImageVideo" />
+      <xs:enumeration value="ProBel2" />
+      <xs:enumeration value="Sony1616" />
+      <xs:enumeration value="DemoRouter" />
+      <xs:enumeration value="BTSSaturn" />
+      <xs:enumeration value="Sony3232" />
+      <xs:enumeration value="Sony6464" />
+      <xs:enumeration value="MarcSWTC" />
+      <xs:enumeration value="Thom9920" />
+      <xs:enumeration value="Ross316" />
+      <xs:enumeration value="Pesa2400" />
+      <xs:enumeration value="ProBelSwitch" />
+      <xs:enumeration value="MCS1600" />
+      <xs:enumeration value="USIUDI" />
+      <xs:enumeration value="LeitchRouter" />
+      <xs:enumeration value="LeitchHX1Router" />
+      <xs:enumeration value="MCSMaster21" />
+      <xs:enumeration value="MCSProdigy" />
+      <xs:enumeration value="QuartzRouter" />
+      <xs:enumeration value="MCSSonyDVSM1000" />
+      <xs:enumeration value="MCSTektronixM2100" />
+      <xs:enumeration value="TelectRouter" />
+      <xs:enumeration value="ADComRouter" />
+      <xs:enumeration value="NVisionRouter1308" />
+      <xs:enumeration value="NVisionRouter3064" />
+      <xs:enumeration value="NVisionRouter3128" />
+      <xs:enumeration value="NVisionRouter3512" />
+      <xs:enumeration value="BTSMarsRouter" />
+      <xs:enumeration value="NVisionRouter1055" />
+      <xs:enumeration value="LMSBasedRouter" />
+      <xs:enumeration value="ProBelTX220" />
+      <xs:enumeration value="ProBelSYS2" />
+      <xs:enumeration value="ProBelSYS3" />
+      <xs:enumeration value="Thomson9920" />
+      <xs:enumeration value="VideotekRS12" />
+      <xs:enumeration value="Sierra1616" />
+      <xs:enumeration value="EasyKey31" />
+      <xs:enumeration value="DemoMCSwitcher" />
+      <xs:enumeration value="Sony256Router" />
+      <xs:enumeration value="NetworkProlineRouter" />
+      <xs:enumeration value="OxtelPresmaster" />
+      <xs:enumeration value="SnellTriky" />
+      <xs:enumeration value="SonyIsara" />
+      <xs:enumeration value="SierraRouter" />
+      <xs:enumeration value="LysisRouter" />
+      <xs:enumeration value="M2100AuxRouter" />
+      <xs:enumeration value="Sony4096" />
+      <xs:enumeration value="MirandaHDRouter" />
+      <xs:enumeration value="E1202Router" />
+      <xs:enumeration value="QuartzQMC" />
+      <xs:enumeration value="EvertzMCS" />
+      <xs:enumeration value="MCSOxtel" />
+      <xs:enumeration value="NVisionMCS" />
+      <xs:enumeration value="ThomsonDD20M" />
+      <xs:enumeration value="LeitchOpusMCS" />
+      <xs:enumeration value="NVisionRouter" />
+      <xs:enumeration value="PesaMCLite" />
+      <xs:enumeration value="GRVMaestro" />
+      <xs:enumeration value="USI2020" />
+      <xs:enumeration value="ProBelTX520" />
+      <xs:enumeration value="VSMRouter" />
+      <xs:enumeration value="IconMasterMCS" />
+      <xs:enumeration value="LeitchPTRouter" />
+      <xs:enumeration value="IconMasterAuxRouter" />
+      <xs:enumeration value="EvertzQMC" />
+      <xs:enumeration value="DiTech9001Router" />
+      <xs:enumeration value="NVision9000" />
+      <xs:enumeration value="MCSImg750" />
+      <xs:enumeration value="NvisionComprouter" />
+      <xs:enumeration value="BrandMasterMCS" />
+      <xs:enumeration value="BrandMasterAUX_Router" />
+      <xs:enumeration value="NGCMCSwitcher" />
+      <xs:enumeration value="HarrisPCQRouter" />
+      <xs:enumeration value="Usi4000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SwitchDevices" nillable="true" type="tns:SwitchDevices" />
+  <xs:simpleType name="SwitcherStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="NoCommunication" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SwitcherStatus" nillable="true" type="tns:SwitcherStatus" />
+  <xs:simpleType name="SwitcherSystemInput">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoInput" />
+      <xs:enumeration value="Black" />
+      <xs:enumeration value="ColorBar" />
+      <xs:enumeration value="StationId" />
+      <xs:enumeration value="Init" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SwitcherSystemInput" nillable="true" type="tns:SwitcherSystemInput" />
+  <xs:simpleType name="VTRDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SonyVTR" />
+      <xs:enumeration value="AmpexVTR" />
+      <xs:enumeration value="SonyDemoVTR" />
+      <xs:enumeration value="VPR300VTR" />
+      <xs:enumeration value="PinnacleDVExtreme" />
+      <xs:enumeration value="PanasonicVTR" />
+      <xs:enumeration value="ExtVTR" />
+      <xs:enumeration value="SonyXDDeck" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VTRDevices" nillable="true" type="tns:VTRDevices" />
+  <xs:simpleType name="VTRTypes">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NormalVTR" />
+      <xs:enumeration value="CompileVTR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VTRTypes" nillable="true" type="tns:VTRTypes" />
+  <xs:simpleType name="LMSDevices">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SonyBetaCart" />
+      <xs:enumeration value="SonyDVC80" />
+      <xs:enumeration value="SonyBVC80" />
+      <xs:enumeration value="SonyDVC300" />
+      <xs:enumeration value="SonyBVC400" />
+      <xs:enumeration value="SonyDVC500" />
+      <xs:enumeration value="SonyBVC500" />
+      <xs:enumeration value="SonyDVC1000" />
+      <xs:enumeration value="SonyBVC1000" />
+      <xs:enumeration value="FlexiCart" />
+      <xs:enumeration value="SonyDemoBeta" />
+      <xs:enumeration value="SonyDemo1000" />
+      <xs:enumeration value="OdeticsTCS90" />
+      <xs:enumeration value="OdeticsTCS90M" />
+      <xs:enumeration value="OdeticsTCS90LEM" />
+      <xs:enumeration value="OdeticsTCS90A" />
+      <xs:enumeration value="OdeticsTCS2000" />
+      <xs:enumeration value="SonyBVC1000A" />
+      <xs:enumeration value="MarcCart201" />
+      <xs:enumeration value="MarcCart401" />
+      <xs:enumeration value="MarcCart204" />
+      <xs:enumeration value="MarcCart404" />
+      <xs:enumeration value="MarcCart208" />
+      <xs:enumeration value="MarcCart408" />
+      <xs:enumeration value="MarcCart212" />
+      <xs:enumeration value="MarcCart412" />
+      <xs:enumeration value="OdeticsProphet" />
+      <xs:enumeration value="ThomsonProCart" />
+      <xs:enumeration value="SonyBVC400B" />
+      <xs:enumeration value="MarcSmartCart" />
+      <xs:enumeration value="DVCamFlexiCart" />
+      <xs:enumeration value="OdeticsTCS90DVC" />
+      <xs:enumeration value="XDCamCart80Bin" />
+      <xs:enumeration value="XDCamCart640Bin" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LMSDevices" nillable="true" type="tns:LMSDevices" />
+  <xs:complexType name="ArrayOfLMSStates">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LMSStates" type="tns:LMSStates" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLMSStates" nillable="true" type="tns:ArrayOfLMSStates" />
+  <xs:simpleType name="LMSStates">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="DoorOpen" />
+      <xs:enumeration value="ElevatorJam" />
+      <xs:enumeration value="PortFull" />
+      <xs:enumeration value="VTRJam" />
+      <xs:enumeration value="BinVerify" />
+      <xs:enumeration value="InInitial" />
+      <xs:enumeration value="Shutdown" />
+      <xs:enumeration value="Manual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LMSStates" nillable="true" type="tns:LMSStates" />
+  <xs:simpleType name="LMSStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="NoCom" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="NotCommunicating" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LMSStatus" nillable="true" type="tns:LMSStatus" />
+</xs:schema>

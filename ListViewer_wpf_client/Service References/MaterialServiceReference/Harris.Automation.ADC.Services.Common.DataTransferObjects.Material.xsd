@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfMaterialSearchDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialSearchDTO" nillable="true" type="tns:MaterialSearchDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaterialSearchDTO" nillable="true" type="tns:ArrayOfMaterialSearchDTO" />
+  <xs:complexType name="MaterialSearchDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MaterialDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AirDateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AlternateIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AudioFormat" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="BoxIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q1:TimeCodeDTO" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="EndOfMedia" nillable="true" type="q2:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="ExtendedInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPlayed" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Made" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MaterialId" type="xs:int" />
+          <xs:element minOccurs="0" name="MoreInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NoteDateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OriginationReelIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlayNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Purge" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Quality" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SpotType" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="StartOfMedia" nillable="true" type="q3:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserData" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VideoFormat" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MaterialSearchDTO" nillable="true" type="tns:MaterialSearchDTO" />
+  <xs:complexType name="MaterialDTO">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="MaterialDTO" nillable="true" type="tns:MaterialDTO" />
+  <xs:complexType name="AsRunDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MaterialDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ADCEventId" type="ser:guid" />
+          <xs:element minOccurs="0" name="ActualDuration" type="xs:int" />
+          <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="CompileTape" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Device" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EventType" type="xs:int" />
+          <xs:element minOccurs="0" name="HardStart" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ListNumber" type="xs:short" />
+          <xs:element minOccurs="0" name="OnAirDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OnAirTime" type="xs:int" />
+          <xs:element minOccurs="0" name="ReconcileKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecondaryEventName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SegmentNumber" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartOfMedia" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AsRunDTO" nillable="true" type="tns:AsRunDTO" />
+  <xs:complexType name="MaterialSegmentDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MaterialDTO">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q4:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="ExtendedInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NoteDateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SegmentNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="SegmentType" type="xs:int" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="StartOfMedia" nillable="true" type="q5:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MaterialSegmentDTO" nillable="true" type="tns:MaterialSegmentDTO" />
+  <xs:complexType name="CriteriaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Filters" nillable="true" type="tns:ArrayOfCriterionDTO" />
+      <xs:element minOccurs="0" name="Sorts" nillable="true" type="tns:ArrayOfSortDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CriteriaDTO" nillable="true" type="tns:CriteriaDTO" />
+  <xs:complexType name="ArrayOfCriterionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CriterionDTO" nillable="true" type="tns:CriterionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCriterionDTO" nillable="true" type="tns:ArrayOfCriterionDTO" />
+  <xs:complexType name="CriterionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Criterions" nillable="true" type="tns:ArrayOfCriterionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CriterionDTO" nillable="true" type="tns:CriterionDTO" />
+  <xs:complexType name="CriterionCompareDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriterionDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Field" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Operator" type="tns:CriterionCompareOperator" />
+          <xs:element minOccurs="0" name="ProcessAs" type="tns:CriterionProcessAs" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriterionCompareDTO" nillable="true" type="tns:CriterionCompareDTO" />
+  <xs:simpleType name="CriterionCompareOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotEqual" />
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="GreaterThan" />
+      <xs:enumeration value="GreaterThanOrEqual" />
+      <xs:enumeration value="LessThan" />
+      <xs:enumeration value="LessThanOrEqual" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="StartsWith" />
+      <xs:enumeration value="EndsWith" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CriterionCompareOperator" nillable="true" type="tns:CriterionCompareOperator" />
+  <xs:simpleType name="CriterionProcessAs">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Int" />
+      <xs:enumeration value="Timecode" />
+      <xs:enumeration value="Date" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CriterionProcessAs" nillable="true" type="tns:CriterionProcessAs" />
+  <xs:complexType name="CriterionLogicDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriterionDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Left" nillable="true" type="tns:CriterionDTO" />
+          <xs:element minOccurs="0" name="Operator" type="tns:CriterionLogicOperator" />
+          <xs:element minOccurs="0" name="Right" nillable="true" type="tns:CriterionDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriterionLogicDTO" nillable="true" type="tns:CriterionLogicDTO" />
+  <xs:simpleType name="CriterionLogicOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="And" />
+      <xs:enumeration value="Or" />
+      <xs:enumeration value="Not" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CriterionLogicOperator" nillable="true" type="tns:CriterionLogicOperator" />
+  <xs:complexType name="ArrayOfSortDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SortDTO" nillable="true" type="tns:SortDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSortDTO" nillable="true" type="tns:ArrayOfSortDTO" />
+  <xs:complexType name="SortDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ascending" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Field" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SortDTO" nillable="true" type="tns:SortDTO" />
+  <xs:complexType name="ArrayOfMaterialSegmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialSegmentDTO" nillable="true" type="tns:MaterialSegmentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaterialSegmentDTO" nillable="true" type="tns:ArrayOfMaterialSegmentDTO" />
+  <xs:complexType name="ArrayOfPullListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PullListDTO" nillable="true" type="tns:PullListDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPullListDTO" nillable="true" type="tns:ArrayOfPullListDTO" />
+  <xs:complexType name="PullListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoxId1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BoxId2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DBStatus" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q6:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="EventPos" type="xs:int" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occurrences" type="xs:int" />
+      <xs:element minOccurs="0" name="SegmentNumber" type="xs:int" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Som" nillable="true" type="q7:TimeCodeDTO" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="TimeOfDay" nillable="true" type="q8:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PullListDTO" nillable="true" type="tns:PullListDTO" />
+  <xs:complexType name="ArrayOfCacheDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CacheDTO" nillable="true" type="tns:CacheDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCacheDTO" nillable="true" type="tns:ArrayOfCacheDTO" />
+  <xs:complexType name="CacheDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataBase" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q9:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlayDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PurgeDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Som" nillable="true" type="q10:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="SpotNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CacheDTO" nillable="true" type="tns:CacheDTO" />
+  <xs:complexType name="ArrayOfValidationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationDTO" nillable="true" type="tns:ValidationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidationDTO" nillable="true" type="tns:ArrayOfValidationDTO" />
+  <xs:complexType name="ValidationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorType" type="tns:ValidationErrorType" />
+      <xs:element minOccurs="0" name="EventNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Segment" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationDTO" nillable="true" type="tns:ValidationDTO" />
+  <xs:simpleType name="ValidationErrorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sequence" />
+      <xs:enumeration value="SameSeg" />
+      <xs:enumeration value="Separates" />
+      <xs:enumeration value="SameId" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ValidationErrorType" nillable="true" type="tns:ValidationErrorType" />
+  <xs:complexType name="ArrayOfGlobalStorageSearchDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GlobalStorageSearchDTO" nillable="true" type="tns:GlobalStorageSearchDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGlobalStorageSearchDTO" nillable="true" type="tns:ArrayOfGlobalStorageSearchDTO" />
+  <xs:complexType name="GlobalStorageSearchDTO">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" minOccurs="0" name="Device" nillable="true" type="q11:DeviceDTO" />
+      <xs:element minOccurs="0" name="Materials" nillable="true" type="tns:ArrayOfCacheDTO" />
+      <xs:element minOccurs="0" name="Server" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlobalStorageSearchDTO" nillable="true" type="tns:GlobalStorageSearchDTO" />
+  <xs:complexType name="DbChangeInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentValue" nillable="true" type="tns:MaterialDTO" />
+      <xs:element minOccurs="0" name="OldValue" nillable="true" type="tns:MaterialDTO" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="State" type="q12:EntityState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbChangeInfoDTO" nillable="true" type="tns:DbChangeInfoDTO" />
+  <xs:complexType name="VerifyListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="List" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestId" type="ser:guid" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SelectSegmentsData" nillable="true" type="q13:ArrayOfKeyValueOfguidArrayOfMaterialSegmentDTO4LXUU6aL" />
+      <xs:element minOccurs="0" name="Server" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VerifyListDTO" nillable="true" type="tns:VerifyListDTO" />
+</xs:schema>

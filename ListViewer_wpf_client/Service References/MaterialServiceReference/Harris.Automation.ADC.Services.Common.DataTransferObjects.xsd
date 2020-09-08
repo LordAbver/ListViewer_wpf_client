@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" />
+  <xs:complexType name="DeviceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceNumber" type="xs:unsignedByte" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceType" type="q1:DevType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceDTO" nillable="true" type="tns:DeviceDTO" />
+  <xs:complexType name="DiskDeviceDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q2:OtherMediaDevices" />
+          <xs:element minOccurs="0" name="MStorageCount" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxPlayers" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="StorageChanged" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ThePlayers" nillable="true" type="tns:ArrayOfMediaPlayerDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiskDeviceDTO" nillable="true" type="tns:DiskDeviceDTO" />
+  <xs:complexType name="ArrayOfMediaPlayerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MediaPlayerDTO" nillable="true" type="tns:MediaPlayerDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMediaPlayerDTO" nillable="true" type="tns:ArrayOfMediaPlayerDTO" />
+  <xs:complexType name="MediaPlayerDTO">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceMediaState" type="q3:MediaStateType" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q4:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ListNum" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="ListOwner" type="xs:unsignedByte" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="RunStatus" nillable="true" type="q5:ArrayOfRunStatus" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q6:Status" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Tape" nillable="true" type="q7:TimeCodeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MediaPlayerDTO" nillable="true" type="tns:MediaPlayerDTO" />
+  <xs:complexType name="BcrDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q8:BCRDevices" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q9:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Som" nillable="true" type="q10:TimeCodeDTO" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q11:BCRStatus" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BcrDTO" nillable="true" type="tns:BcrDTO" />
+  <xs:complexType name="GpiDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q12:GPIDevices" />
+          <xs:element minOccurs="0" name="MaxGpis" type="xs:unsignedByte" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q13:GPIStatus" />
+          <xs:element minOccurs="0" name="TheGpiDev" nillable="true" type="tns:ArrayOfGpiChannelDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GpiDTO" nillable="true" type="tns:GpiDTO" />
+  <xs:complexType name="ArrayOfGpiChannelDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GpiChannelDTO" nillable="true" type="tns:GpiChannelDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGpiChannelDTO" nillable="true" type="tns:ArrayOfGpiChannelDTO" />
+  <xs:complexType name="GpiChannelDTO">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceMediaState" type="q14:MediaStateType" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q15:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdChange" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ListNum" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="ListOwner" type="xs:unsignedByte" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="RunStatus" nillable="true" type="q16:ArrayOfRunStatus" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q17:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GpiChannelDTO" nillable="true" type="tns:GpiChannelDTO" />
+  <xs:complexType name="OtherMediaDeviceDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q18:OtherMediaDevices" />
+          <xs:element minOccurs="0" name="MStorageCount" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxPlayers" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="StorageChanged" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ThePlayers" nillable="true" type="tns:ArrayOfMediaPlayerDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OtherMediaDeviceDTO" nillable="true" type="tns:OtherMediaDeviceDTO" />
+  <xs:complexType name="AnoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q19:AnnotatorDevices" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q20:AnnotatorStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AnoDTO" nillable="true" type="tns:AnoDTO" />
+  <xs:complexType name="SwitcherDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q21:SwitchDevices" />
+          <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:SwitcherDimensionsDTO" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q22:SwitcherStatus" />
+          <xs:element minOccurs="0" name="SwitchpointIn" type="xs:unsignedShort" />
+          <xs:element minOccurs="0" name="SwitchpointOut" type="xs:unsignedShort" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="SystemInput" type="q23:SwitcherSystemInput" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SwitcherDTO" nillable="true" type="tns:SwitcherDTO" />
+  <xs:complexType name="SwitcherDimensionsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SwitcherDimensionIn" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="SwitcherDimensionOut" type="xs:unsignedShort" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SwitcherDimensionsDTO" nillable="true" type="tns:SwitcherDimensionsDTO" />
+  <xs:complexType name="LmsVtrDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q24:VTRDevices" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceMediaState" type="q25:MediaStateType" />
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q26:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ListNum" type="xs:unsignedShort" />
+          <xs:element minOccurs="0" name="ListOwner" type="xs:unsignedByte" />
+          <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="RunStatus" nillable="true" type="q27:ArrayOfRunStatus" />
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q28:Status" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Tape" nillable="true" type="q29:TimeCodeDTO" />
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Type" type="q30:VTRTypes" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LmsVtrDTO" nillable="true" type="tns:LmsVtrDTO" />
+  <xs:complexType name="LmsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BinChanged" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="BinCount" type="xs:short" />
+          <xs:element minOccurs="0" name="BinDisplay" type="xs:unsignedByte" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q31:LMSDevices" />
+          <xs:element minOccurs="0" name="EmptyBins" type="xs:short" />
+          <xs:element minOccurs="0" name="MaxVtrs" type="xs:unsignedByte" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="State" nillable="true" type="q32:ArrayOfLMSStates" />
+          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q33:LMSStatus" />
+          <xs:element minOccurs="0" name="SwitchpointIn" type="xs:unsignedShort" />
+          <xs:element minOccurs="0" name="SwitchpointOut" type="xs:unsignedShort" />
+          <xs:element minOccurs="0" name="TheLmsVtr" nillable="true" type="tns:ArrayOfLmsVtrDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LmsDTO" nillable="true" type="tns:LmsDTO" />
+  <xs:complexType name="ArrayOfLmsVtrDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LmsVtrDTO" nillable="true" type="tns:LmsVtrDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLmsVtrDTO" nillable="true" type="tns:ArrayOfLmsVtrDTO" />
+  <xs:complexType name="VtrDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceDTO">
+        <xs:sequence>
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceBrand" type="q34:VTRDevices" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="DeviceMediaState" type="q35:MediaStateType" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Duration" nillable="true" type="q36:TimeCodeDTO" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ListNum" type="xs:unsignedShort" />
+          <xs:element minOccurs="0" name="ListOwner" type="xs:unsignedByte" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="RunStatus" nillable="true" type="q37:ArrayOfRunStatus" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Status" type="q38:Status" />
+          <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="Tape" nillable="true" type="q39:TimeCodeDTO" />
+          <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" minOccurs="0" name="Type" type="q40:VTRTypes" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VtrDTO" nillable="true" type="tns:VtrDTO" />
+</xs:schema>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Source.DataTransferObjects.BreakAway" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Source.DataTransferObjects.BreakAway" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" />
+  <xs:complexType name="BreakAwayConfigurationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupList" nillable="true" type="tns:ArrayOfBreakAwayGroupDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BreakAwayConfigurationDTO" nillable="true" type="tns:BreakAwayConfigurationDTO" />
+  <xs:complexType name="ArrayOfBreakAwayGroupDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BreakAwayGroupDTO" nillable="true" type="tns:BreakAwayGroupDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBreakAwayGroupDTO" nillable="true" type="tns:ArrayOfBreakAwayGroupDTO" />
+  <xs:complexType name="BreakAwayGroupDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channels" nillable="true" type="tns:ArrayOfChannelDescription" />
+      <xs:element name="Commercial" type="xs:boolean" />
+      <xs:element name="DefaultPath" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="GapTime" nillable="true" type="q1:TimeCodeDTO" />
+      <xs:element name="GroupName" nillable="true" type="xs:string" />
+      <xs:element name="Jip" type="xs:boolean" />
+      <xs:element name="MaxFill" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="MaxTime" nillable="true" type="q2:TimeCodeDTO" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="MinFragment" nillable="true" type="q3:TimeCodeDTO" />
+      <xs:element name="Program" type="xs:boolean" />
+      <xs:element name="SequencePath" nillable="true" type="xs:string" />
+      <xs:element name="Slide" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BreakAwayGroupDTO" nillable="true" type="tns:BreakAwayGroupDTO" />
+  <xs:complexType name="ArrayOfChannelDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChannelDescription" nillable="true" type="tns:ChannelDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChannelDescription" nillable="true" type="tns:ArrayOfChannelDescription" />
+  <xs:complexType name="ChannelDescription">
+    <xs:sequence>
+      <xs:element name="List" type="xs:int" />
+      <xs:element name="ServerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChannelDescription" nillable="true" type="tns:ChannelDescription" />
+  <xs:complexType name="BreakAwayListStatusDTO">
+    <xs:sequence>
+      <xs:element name="DefaultPath" nillable="true" type="xs:string" />
+      <xs:element name="HasBreakAway" type="xs:boolean" />
+      <xs:element name="InBreakAway" type="xs:boolean" />
+      <xs:element name="SequencePath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BreakAwayListStatusDTO" nillable="true" type="tns:BreakAwayListStatusDTO" />
+</xs:schema>

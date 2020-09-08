@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Configuration" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="IsAlive">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsAliveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Configuration" minOccurs="0" name="GetVersionResult" nillable="true" type="q1:ServiceVersion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q2:SearchOperator" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q3:ArrayOfRecordType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByIdResult" nillable="true" type="q4:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q5:SearchOperator" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q6:ArrayOfRecordType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByTitleResult" nillable="true" type="q7:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q8:SearchOperator" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q9:ArrayOfRecordType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByUserDataResult" nillable="true" type="q10:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByMadeOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q11:SearchOperator" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q12:ArrayOfRecordType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByMadeOnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByMadeOnResult" nillable="true" type="q13:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByPlayed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q14:SearchOperator" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q15:ArrayOfRecordType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByPlayedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByPlayedResult" nillable="true" type="q16:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByPurgeOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q17:SearchOperator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByPurgeOnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByPurgeOnResult" nillable="true" type="q18:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByBox">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q19:SearchOperator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByBoxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByBoxResult" nillable="true" type="q20:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByDuplicates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="criteria2" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="searchOperator" type="q21:SearchOperator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByDuplicatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByDuplicatesResult" nillable="true" type="q22:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="criteria" nillable="true" type="q23:CriteriaDTO" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q24:ArrayOfRecordType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByCriteriaResult" nillable="true" type="q25:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSegments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="material" nillable="true" type="q26:MaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSegmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetSegmentsResult" nillable="true" type="q27:ArrayOfMaterialSegmentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyEventAgainstDatabase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="list" type="xs:int" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="eventId" type="q28:guid" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q29:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyEventAgainstDatabaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerifyEventAgainstDatabaseResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyEventAgainstDatabaseOptioned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="list" type="xs:int" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="eventId" type="q30:guid" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q31:guid" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="fieldsToUpdate" type="q32:VerifyDbFieldSelector" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyEventAgainstDatabaseOptionedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerifyEventAgainstDatabaseOptionedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyListAgainstDatabase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="list" type="xs:int" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q33:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyListAgainstDatabaseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyListAgainstDatabaseOptioned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="list" type="xs:int" />
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q34:guid" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="fieldsToUpdate" type="q35:VerifyDbFieldSelector" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyListAgainstDatabaseOptionedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterDatabaseChangeListener">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterDatabaseChangeListenerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterDatabaseChangeListenerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeneratePullList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="list" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeneratePullListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GeneratePullListResult" nillable="true" type="q36:ArrayOfPullListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnregisterDatabaseChangeListener">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnregisterDatabaseChangeListenerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterVerifyListListener">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" minOccurs="0" name="session" nillable="true" type="q37:LoginSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterVerifyListListenerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterVerifyListListenerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnregisterVerifyListListener">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" minOccurs="0" name="session" nillable="true" type="q38:LoginSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnregisterVerifyListListenerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageCollection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageCollectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetStorageCollectionResult" nillable="true" type="q39:ArrayOfCacheDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageCollectionAsync">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" type="xs:int" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q40:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageCollectionAsyncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="GetStorageCollectionAsyncResult" type="q41:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateValidationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="server" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="list" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateValidationListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GenerateValidationListResult" nillable="true" type="q42:ArrayOfValidationDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q43:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetMaterialsByIDsResult" nillable="true" type="q44:ArrayOfMaterialSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSegmentsByIdSegSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q45:ArrayOfKeyValueOfstringArrayOfintty7Ep6D1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSegmentsByIdSegSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GetSegmentsByIdSegSetResult" nillable="true" type="q46:ArrayOfMaterialSegmentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GlobalStorageSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="criteria" nillable="true" type="q47:CriteriaDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GlobalStorageSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="GlobalStorageSearchResult" nillable="true" type="q48:ArrayOfGlobalStorageSearchDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQualityCheckValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="segmentNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQualityCheckValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQualityCheckValueResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQualityCheckValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="segmentNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="value" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQualityCheckValueResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContentTypesInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContentTypesInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetContentTypesInfoResult" nillable="true" type="q49:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDatabaseSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q50:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDatabaseSearchResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByCriteriaAsync">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="criteria" nillable="true" type="q51:CriteriaDTO" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" minOccurs="0" name="recordTypes" nillable="true" type="q52:ArrayOfRecordType" />
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q53:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaterialsByCriteriaAsyncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="GetMaterialsByCriteriaAsyncResult" type="q54:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnDatabaseChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="change" nillable="true" type="q55:DbChangeInfoDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnVerifyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="data" nillable="true" type="q56:VerifyListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnDBsearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="data" nillable="true" type="q57:ArrayOfMaterialSearchDTO" />
+        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q58:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnGetStorageCollection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" minOccurs="0" name="data" nillable="true" type="q59:ArrayOfCacheDTO" />
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q60:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

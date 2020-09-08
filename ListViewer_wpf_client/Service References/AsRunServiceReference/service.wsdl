@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AsRunService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IAsRunService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Configuration" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Events" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAsRunService_IsAlive_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_IsAlive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_RegisterAsRunListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAsRunListener" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_RegisterAsRunListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAsRunListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_UnregisterAsRunListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterAsRunListener" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_UnregisterAllAsRunListeners_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterAllAsRunListeners" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_RequestAsRun_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestAsRun" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_AsRunEnabled_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsRunEnabled" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_AsRunEnabled_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsRunEnabledResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_RegisterConnectionStateListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterConnectionStateListener" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_RegisterConnectionStateListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterConnectionStateListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_UnregisterConnectionStateListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterConnectionStateListener" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_GetAvailableDeviceServers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDeviceServers" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_GetAvailableDeviceServers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDeviceServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_OnAsRun_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnAsRun" />
+  </wsdl:message>
+  <wsdl:message name="IAsRunService_OnConnectionStateChange_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnConnectionStateChange" />
+  </wsdl:message>
+  <wsdl:portType name="IAsRunService">
+    <wsdl:operation name="IsAlive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatableService/IsAlive" message="tns:IAsRunService_IsAlive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatableService/IsAliveResponse" message="tns:IAsRunService_IsAlive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatableService/GetVersion" message="tns:IAsRunService_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatableService/GetVersionResponse" message="tns:IAsRunService_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAsRunListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/RegisterAsRunListener" message="tns:IAsRunService_RegisterAsRunListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAsRunService/RegisterAsRunListenerResponse" message="tns:IAsRunService_RegisterAsRunListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAsRunListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/UnregisterAsRunListener" message="tns:IAsRunService_UnregisterAsRunListener_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAllAsRunListeners">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/UnregisterAllAsRunListeners" message="tns:IAsRunService_UnregisterAllAsRunListeners_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestAsRun">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/RequestAsRun" message="tns:IAsRunService_RequestAsRun_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsRunEnabled">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/AsRunEnabled" message="tns:IAsRunService_AsRunEnabled_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAsRunService/AsRunEnabledResponse" message="tns:IAsRunService_AsRunEnabled_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterConnectionStateListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/RegisterConnectionStateListener" message="tns:IAsRunService_RegisterConnectionStateListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAsRunService/RegisterConnectionStateListenerResponse" message="tns:IAsRunService_RegisterConnectionStateListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterConnectionStateListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/UnregisterConnectionStateListener" message="tns:IAsRunService_UnregisterConnectionStateListener_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDeviceServers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAsRunService/GetAvailableDeviceServers" message="tns:IAsRunService_GetAvailableDeviceServers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAsRunService/GetAvailableDeviceServersResponse" message="tns:IAsRunService_GetAvailableDeviceServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnAsRun">
+      <wsdl:output wsaw:Action="http://tempuri.org/IAsRunService/OnAsRun" message="tns:IAsRunService_OnAsRun_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnConnectionStateChange">
+      <wsdl:output wsaw:Action="http://tempuri.org/IAsRunService/OnConnectionStateChange" message="tns:IAsRunService_OnConnectionStateChange_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IAsRunService" type="tns:IAsRunService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IAsRunService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://tempuri.org/IHeartbeatableService/IsAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://tempuri.org/IHeartbeatableService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAsRunListener">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/RegisterAsRunListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAsRunListener">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/UnregisterAsRunListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAllAsRunListeners">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/UnregisterAllAsRunListeners" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RequestAsRun">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/RequestAsRun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AsRunEnabled">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/AsRunEnabled" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterConnectionStateListener">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/RegisterConnectionStateListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterConnectionStateListener">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/UnregisterConnectionStateListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDeviceServers">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/GetAvailableDeviceServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnAsRun">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/OnAsRun" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnConnectionStateChange">
+      <soap12:operation soapAction="http://tempuri.org/IAsRunService/OnConnectionStateChange" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AsRunService">
+    <wsdl:port name="NetTcpBinding_IAsRunService" binding="tns:NetTcpBinding_IAsRunService">
+      <soap12:address location="net.tcp://localhost:10010/Harris.Automation.ADC.Services.AsRunService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:10010/Harris.Automation.ADC.Services.AsRunService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

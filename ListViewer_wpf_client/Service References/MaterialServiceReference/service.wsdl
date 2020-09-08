@@ -1,0 +1,1002 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MaterialService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IMaterialService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Configuration" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Material" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMaterialService_IsAlive_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_IsAlive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsById" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsById_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q1:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsById_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q2:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByTitle" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByTitle_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q3:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByTitle_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q4:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByUserData" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByUserData_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q5:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByUserData_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q6:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByMadeOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByMadeOn" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByMadeOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByMadeOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByMadeOn_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q7:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByMadeOn_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q8:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPlayed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByPlayed" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPlayed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByPlayedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPlayed_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q9:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPlayed_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q10:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPurgeOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByPurgeOn" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPurgeOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByPurgeOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPurgeOn_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q11:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByPurgeOn_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q12:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByBox_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByBox" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByBox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByBox_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q13:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByBox_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q14:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByDuplicates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByDuplicates" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByDuplicates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByDuplicatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByDuplicates_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q15:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByDuplicates_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q16:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteria_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q17:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteria_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q18:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetSegments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSegments" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetSegments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSegmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetSegments_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q19:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEventAgainstDatabase" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEventAgainstDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabase_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q20:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabase_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q21:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabaseOptioned_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEventAgainstDatabaseOptioned" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabaseOptioned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEventAgainstDatabaseOptionedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabaseOptioned_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q22:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyEventAgainstDatabaseOptioned_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q23:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyListAgainstDatabase" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyListAgainstDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabase_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q24:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabase_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q25:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabaseOptioned_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyListAgainstDatabaseOptioned" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabaseOptioned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyListAgainstDatabaseOptionedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabaseOptioned_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q26:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_VerifyListAgainstDatabaseOptioned_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q27:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_RegisterDatabaseChangeListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDatabaseChangeListener" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_RegisterDatabaseChangeListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDatabaseChangeListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GeneratePullList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeneratePullList" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GeneratePullList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeneratePullListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GeneratePullList_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q28:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_UnregisterDatabaseChangeListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterDatabaseChangeListener" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_UnregisterDatabaseChangeListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterDatabaseChangeListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_RegisterVerifyListListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterVerifyListListener" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_RegisterVerifyListListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterVerifyListListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_UnregisterVerifyListListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterVerifyListListener" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_UnregisterVerifyListListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterVerifyListListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetStorageCollection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageCollection" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetStorageCollection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageCollectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetStorageCollection_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q29:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetStorageCollectionAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageCollectionAsync" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetStorageCollectionAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageCollectionAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetStorageCollectionAsync_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q30:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GenerateValidationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateValidationList" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GenerateValidationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateValidationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GenerateValidationList_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q31:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByIDs" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByIDs_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q32:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetSegmentsByIdSegSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSegmentsByIdSegSet" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetSegmentsByIdSegSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSegmentsByIdSegSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetSegmentsByIdSegSet_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q33:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GlobalStorageSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GlobalStorageSearch" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GlobalStorageSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GlobalStorageSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GlobalStorageSearch_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q34:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GlobalStorageSearch_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q35:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetQualityCheckValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQualityCheckValue" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetQualityCheckValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQualityCheckValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetQualityCheckValue_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q36:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetQualityCheckValue_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q37:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_SetQualityCheckValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetQualityCheckValue" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_SetQualityCheckValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetQualityCheckValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_SetQualityCheckValue_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q38:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_SetQualityCheckValue_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q39:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetContentTypesInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentTypesInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetContentTypesInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentTypesInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetContentTypesInfo_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q40:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetContentTypesInfo_MaterialServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q41:MaterialServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_CancelDatabaseSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelDatabaseSearch" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_CancelDatabaseSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelDatabaseSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteriaAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByCriteriaAsync" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteriaAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaterialsByCriteriaAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteriaAsync_DatabaseAccessErrorFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q42:DatabaseAccessError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_GetMaterialsByCriteriaAsync_InvalidCriteriaErrorFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService" name="detail" element="q43:InvalidCriteriaError" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_OnDatabaseChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDatabaseChanged" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_OnVerifyList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnVerifyList" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_OnDBsearch_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDBsearch" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_OnGetStorageCollection_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnGetStorageCollection" />
+  </wsdl:message>
+  <wsdl:portType name="IMaterialService">
+    <wsdl:operation name="IsAlive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatableService/IsAlive" message="tns:IMaterialService_IsAlive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatableService/IsAliveResponse" message="tns:IMaterialService_IsAlive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatableService/GetVersion" message="tns:IMaterialService_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatableService/GetVersionResponse" message="tns:IMaterialService_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsById" message="tns:IMaterialService_GetMaterialsById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByIdResponse" message="tns:IMaterialService_GetMaterialsById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByIdInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsById_InvalidCriteriaErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByIdDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsById_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByTitle" message="tns:IMaterialService_GetMaterialsByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByTitleResponse" message="tns:IMaterialService_GetMaterialsByTitle_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByTitleInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByTitle_InvalidCriteriaErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByTitleDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByTitle_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByUserData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByUserData" message="tns:IMaterialService_GetMaterialsByUserData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByUserDataResponse" message="tns:IMaterialService_GetMaterialsByUserData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByUserDataDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByUserData_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByUserDataInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByUserData_InvalidCriteriaErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByMadeOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByMadeOn" message="tns:IMaterialService_GetMaterialsByMadeOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByMadeOnResponse" message="tns:IMaterialService_GetMaterialsByMadeOn_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByMadeOnDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByMadeOn_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByMadeOnInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByMadeOn_InvalidCriteriaErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByPlayed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPlayed" message="tns:IMaterialService_GetMaterialsByPlayed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPlayedResponse" message="tns:IMaterialService_GetMaterialsByPlayed_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPlayedDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByPlayed_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPlayedInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByPlayed_InvalidCriteriaErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByPurgeOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPurgeOn" message="tns:IMaterialService_GetMaterialsByPurgeOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPurgeOnResponse" message="tns:IMaterialService_GetMaterialsByPurgeOn_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPurgeOnDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByPurgeOn_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByPurgeOnInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByPurgeOn_InvalidCriteriaErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByBox">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByBox" message="tns:IMaterialService_GetMaterialsByBox_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByBoxResponse" message="tns:IMaterialService_GetMaterialsByBox_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByBoxDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByBox_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByBoxInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByBox_InvalidCriteriaErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByDuplicates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByDuplicates" message="tns:IMaterialService_GetMaterialsByDuplicates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByDuplicatesResponse" message="tns:IMaterialService_GetMaterialsByDuplicates_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByDuplicatesInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByDuplicates_InvalidCriteriaErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByDuplicatesDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByDuplicates_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteria" message="tns:IMaterialService_GetMaterialsByCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaResponse" message="tns:IMaterialService_GetMaterialsByCriteria_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByCriteria_InvalidCriteriaErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByCriteria_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSegments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetSegments" message="tns:IMaterialService_GetSegments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetSegmentsResponse" message="tns:IMaterialService_GetSegments_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetSegmentsDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetSegments_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEventAgainstDatabase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabase" message="tns:IMaterialService_VerifyEventAgainstDatabase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseResponse" message="tns:IMaterialService_VerifyEventAgainstDatabase_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_VerifyEventAgainstDatabase_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_VerifyEventAgainstDatabase_MaterialServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEventAgainstDatabaseOptioned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseOptioned" message="tns:IMaterialService_VerifyEventAgainstDatabaseOptioned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseOptionedResponse" message="tns:IMaterialService_VerifyEventAgainstDatabaseOptioned_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseOptionedDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_VerifyEventAgainstDatabaseOptioned_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseOptionedMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_VerifyEventAgainstDatabaseOptioned_MaterialServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyListAgainstDatabase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabase" message="tns:IMaterialService_VerifyListAgainstDatabase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseResponse" message="tns:IMaterialService_VerifyListAgainstDatabase_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_VerifyListAgainstDatabase_MaterialServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_VerifyListAgainstDatabase_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyListAgainstDatabaseOptioned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseOptioned" message="tns:IMaterialService_VerifyListAgainstDatabaseOptioned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseOptionedResponse" message="tns:IMaterialService_VerifyListAgainstDatabaseOptioned_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseOptionedDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_VerifyListAgainstDatabaseOptioned_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseOptionedMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_VerifyListAgainstDatabaseOptioned_MaterialServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDatabaseChangeListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/RegisterDatabaseChangeListener" message="tns:IMaterialService_RegisterDatabaseChangeListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/RegisterDatabaseChangeListenerResponse" message="tns:IMaterialService_RegisterDatabaseChangeListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePullList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GeneratePullList" message="tns:IMaterialService_GeneratePullList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GeneratePullListResponse" message="tns:IMaterialService_GeneratePullList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GeneratePullListDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GeneratePullList_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterDatabaseChangeListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/UnregisterDatabaseChangeListener" message="tns:IMaterialService_UnregisterDatabaseChangeListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/UnregisterDatabaseChangeListenerResponse" message="tns:IMaterialService_UnregisterDatabaseChangeListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterVerifyListListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/RegisterVerifyListListener" message="tns:IMaterialService_RegisterVerifyListListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/RegisterVerifyListListenerResponse" message="tns:IMaterialService_RegisterVerifyListListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterVerifyListListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/UnregisterVerifyListListener" message="tns:IMaterialService_UnregisterVerifyListListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/UnregisterVerifyListListenerResponse" message="tns:IMaterialService_UnregisterVerifyListListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageCollection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetStorageCollection" message="tns:IMaterialService_GetStorageCollection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetStorageCollectionResponse" message="tns:IMaterialService_GetStorageCollection_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetStorageCollectionDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetStorageCollection_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageCollectionAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetStorageCollectionAsync" message="tns:IMaterialService_GetStorageCollectionAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetStorageCollectionAsyncResponse" message="tns:IMaterialService_GetStorageCollectionAsync_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetStorageCollectionAsyncDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetStorageCollectionAsync_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateValidationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GenerateValidationList" message="tns:IMaterialService_GenerateValidationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GenerateValidationListResponse" message="tns:IMaterialService_GenerateValidationList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GenerateValidationListDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GenerateValidationList_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByIDs" message="tns:IMaterialService_GetMaterialsByIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByIDsResponse" message="tns:IMaterialService_GetMaterialsByIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByIDsDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByIDs_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSegmentsByIdSegSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetSegmentsByIdSegSet" message="tns:IMaterialService_GetSegmentsByIdSegSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetSegmentsByIdSegSetResponse" message="tns:IMaterialService_GetSegmentsByIdSegSet_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetSegmentsByIdSegSetDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetSegmentsByIdSegSet_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GlobalStorageSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GlobalStorageSearch" message="tns:IMaterialService_GlobalStorageSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GlobalStorageSearchResponse" message="tns:IMaterialService_GlobalStorageSearch_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GlobalStorageSearchMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_GlobalStorageSearch_MaterialServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GlobalStorageSearchDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GlobalStorageSearch_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQualityCheckValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetQualityCheckValue" message="tns:IMaterialService_GetQualityCheckValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetQualityCheckValueResponse" message="tns:IMaterialService_GetQualityCheckValue_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetQualityCheckValueMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_GetQualityCheckValue_MaterialServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetQualityCheckValueDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetQualityCheckValue_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetQualityCheckValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/SetQualityCheckValue" message="tns:IMaterialService_SetQualityCheckValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/SetQualityCheckValueResponse" message="tns:IMaterialService_SetQualityCheckValue_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/SetQualityCheckValueMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_SetQualityCheckValue_MaterialServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/SetQualityCheckValueDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_SetQualityCheckValue_DatabaseAccessErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTypesInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetContentTypesInfo" message="tns:IMaterialService_GetContentTypesInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetContentTypesInfoResponse" message="tns:IMaterialService_GetContentTypesInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetContentTypesInfoDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetContentTypesInfo_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetContentTypesInfoMaterialServiceErrorFault" name="MaterialServiceErrorFault" message="tns:IMaterialService_GetContentTypesInfo_MaterialServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDatabaseSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/CancelDatabaseSearch" message="tns:IMaterialService_CancelDatabaseSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/CancelDatabaseSearchResponse" message="tns:IMaterialService_CancelDatabaseSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByCriteriaAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaAsync" message="tns:IMaterialService_GetMaterialsByCriteriaAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaAsyncResponse" message="tns:IMaterialService_GetMaterialsByCriteriaAsync_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaAsyncDatabaseAccessErrorFault" name="DatabaseAccessErrorFault" message="tns:IMaterialService_GetMaterialsByCriteriaAsync_DatabaseAccessErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaAsyncInvalidCriteriaErrorFault" name="InvalidCriteriaErrorFault" message="tns:IMaterialService_GetMaterialsByCriteriaAsync_InvalidCriteriaErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnDatabaseChanged">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/OnDatabaseChanged" message="tns:IMaterialService_OnDatabaseChanged_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnVerifyList">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/OnVerifyList" message="tns:IMaterialService_OnVerifyList_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnDBsearch">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/OnDBsearch" message="tns:IMaterialService_OnDBsearch_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnGetStorageCollection">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/OnGetStorageCollection" message="tns:IMaterialService_OnGetStorageCollection_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IMaterialService" type="tns:IMaterialService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IMaterialService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://tempuri.org/IHeartbeatableService/IsAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://tempuri.org/IHeartbeatableService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsById">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByTitle">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByUserData">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByUserData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByMadeOn">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByMadeOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByPlayed">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByPlayed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByPurgeOn">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByPurgeOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByBox">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByBox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByDuplicates">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByDuplicates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSegments">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetSegments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEventAgainstDatabase">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEventAgainstDatabaseOptioned">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/VerifyEventAgainstDatabaseOptioned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyListAgainstDatabase">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/VerifyListAgainstDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyListAgainstDatabaseOptioned">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/VerifyListAgainstDatabaseOptioned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDatabaseChangeListener">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/RegisterDatabaseChangeListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePullList">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GeneratePullList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterDatabaseChangeListener">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/UnregisterDatabaseChangeListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterVerifyListListener">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/RegisterVerifyListListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterVerifyListListener">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/UnregisterVerifyListListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageCollection">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetStorageCollection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageCollectionAsync">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetStorageCollectionAsync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateValidationList">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GenerateValidationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByIDs">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSegmentsByIdSegSet">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetSegmentsByIdSegSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GlobalStorageSearch">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GlobalStorageSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQualityCheckValue">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetQualityCheckValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetQualityCheckValue">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/SetQualityCheckValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTypesInfo">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetContentTypesInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="MaterialServiceErrorFault">
+        <soap12:fault use="literal" name="MaterialServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDatabaseSearch">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/CancelDatabaseSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialsByCriteriaAsync">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/GetMaterialsByCriteriaAsync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DatabaseAccessErrorFault">
+        <soap12:fault use="literal" name="DatabaseAccessErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCriteriaErrorFault">
+        <soap12:fault use="literal" name="InvalidCriteriaErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OnDatabaseChanged">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/OnDatabaseChanged" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnVerifyList">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/OnVerifyList" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnDBsearch">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/OnDBsearch" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnGetStorageCollection">
+      <soap12:operation soapAction="http://tempuri.org/IMaterialService/OnGetStorageCollection" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaterialService">
+    <wsdl:port name="NetTcpBinding_IMaterialService" binding="tns:NetTcpBinding_IMaterialService">
+      <soap12:address location="net.tcp://localhost:10070/Harris.Automation.ADC.Services.MaterialService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:10070/Harris.Automation.ADC.Services.MaterialService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" />
+  <xs:complexType name="TimeCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Frame" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="FrameRate" nillable="true" type="tns:FrameRateDTO" />
+      <xs:element minOccurs="0" name="Hour" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Minute" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Second" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeCodeDTO" nillable="true" type="tns:TimeCodeDTO" />
+  <xs:complexType name="FrameRateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dropframe" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" minOccurs="0" name="FrameRate" type="q1:FrameRateEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FrameRateDTO" nillable="true" type="tns:FrameRateDTO" />
+</xs:schema>

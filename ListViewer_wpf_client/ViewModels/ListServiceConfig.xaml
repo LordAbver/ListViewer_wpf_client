@@ -1,0 +1,20 @@
+﻿<Window x:Class="ListViewer_wpf_client.ViewModels.ListServiceConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResizeMode="NoResize"
+        Title="List Service Configuration" Height="300" Width="300">
+    <Grid>
+        <GroupBox Header="Current configuration" Height="173" HorizontalAlignment="Left" Margin="24,26,0,0" Name="groupBox1" VerticalAlignment="Top" Width="231">
+            <Grid Height="131">
+                <Label Content="App. Name:" Height="29" HorizontalAlignment="Left" Margin="14,29,0,0" Name="label1" VerticalAlignment="Top" Width="76" />
+                <TextBox Height="30" HorizontalAlignment="Left" Margin="88,30,0,0" Name="_appName" VerticalAlignment="Top" Width="126" />
+                <Label Content="DS:" Height="29" HorizontalAlignment="Left" Margin="15,57,0,0" Name="label2" VerticalAlignment="Top" Width="30" />
+                <TextBox Height="26" HorizontalAlignment="Left" Margin="85,61,0,0" Name="_ds" VerticalAlignment="Top" Width="129" />
+                <Label Content="Connect:" Height="24" HorizontalAlignment="Left" Margin="16,80,0,0" Name="label3" VerticalAlignment="Top" Width="88" />
+                <CheckBox Content="" Height="19" HorizontalAlignment="Left" Margin="85,86,0,0" Name="_connect" VerticalAlignment="Top" Width="16" />
+            </Grid>
+        </GroupBox>
+        <Button Content="Save" Height="28" HorizontalAlignment="Left" Margin="38,213,0,0" Name="SaveButton" VerticalAlignment="Top" Width="93" Click="Save" />
+        <Button Content="Cancel" Height="28" HorizontalAlignment="Left" Margin="137,213,0,0" Name="button2" VerticalAlignment="Top" Width="93" />
+    </Grid>
+</Window>

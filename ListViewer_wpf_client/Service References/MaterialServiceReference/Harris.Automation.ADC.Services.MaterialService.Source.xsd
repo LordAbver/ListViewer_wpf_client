@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.MaterialService.Source" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="SearchOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Is" />
+      <xs:enumeration value="IsBefore" />
+      <xs:enumeration value="IsAfter" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="DoesNotContain" />
+      <xs:enumeration value="IsBetween" />
+      <xs:enumeration value="IsOutside" />
+      <xs:enumeration value="ContainsOr" />
+      <xs:enumeration value="ContainsAnd" />
+      <xs:enumeration value="DoesNotContainOr" />
+      <xs:enumeration value="DoesNotContainAnd" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SearchOperator" nillable="true" type="tns:SearchOperator" />
+  <xs:complexType name="ArrayOfRecordType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecordType" type="tns:RecordType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecordType" nillable="true" type="tns:ArrayOfRecordType" />
+  <xs:simpleType name="RecordType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleSpot" />
+      <xs:enumeration value="ASpot" />
+      <xs:enumeration value="BSpot" />
+      <xs:enumeration value="Multisegment" />
+      <xs:enumeration value="LibBox" />
+      <xs:enumeration value="PArchive" />
+      <xs:enumeration value="BArchive" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RecordType" nillable="true" type="tns:RecordType" />
+  <xs:simpleType name="VerifyDbFieldSelector">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Title">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Duration">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="StartOfMedia">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="All">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Standard">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="VerifyDbFieldSelector" nillable="true" type="tns:VerifyDbFieldSelector" />
+</xs:schema>

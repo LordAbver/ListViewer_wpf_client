@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="LoginSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginSession" nillable="true" type="tns:LoginSession" />
+  <xs:simpleType name="FrameRateEnum">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNKNOWN" />
+      <xs:enumeration value="PAL">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">36</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NTSC">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">41</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FrameRateEnum" nillable="true" type="tns:FrameRateEnum" />
+  <xs:simpleType name="TypeOfList">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Random" />
+      <xs:enumeration value="Compiler" />
+      <xs:enumeration value="Sequence" />
+      <xs:enumeration value="Annotate" />
+      <xs:enumeration value="Media" />
+      <xs:enumeration value="Redundancy" />
+      <xs:enumeration value="RedundancySequence" />
+      <xs:enumeration value="Breakaway" />
+      <xs:enumeration value="Runway" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TypeOfList" nillable="true" type="tns:TypeOfList" />
+  <xs:complexType name="ArrayOfListStateValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListStateValue" type="tns:ListStateValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListStateValue" nillable="true" type="tns:ArrayOfListStateValue" />
+  <xs:simpleType name="ListStateValue">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Playing" />
+      <xs:enumeration value="Threading" />
+      <xs:enumeration value="Freeze" />
+      <xs:enumeration value="Hold" />
+      <xs:enumeration value="Upcounting" />
+      <xs:enumeration value="Recueing" />
+      <xs:enumeration value="WillEnd" />
+      <xs:enumeration value="WillEndBreak" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListStateValue" nillable="true" type="tns:ListStateValue" />
+  <xs:simpleType name="TimecodeCompareResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="Greater" />
+      <xs:enumeration value="Less" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimecodeCompareResult" nillable="true" type="tns:TimecodeCompareResult" />
+  <xs:simpleType name="ListChangeType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ContentsChanged" />
+      <xs:enumeration value="DisplayChanged" />
+      <xs:enumeration value="SystemChanged" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListChangeType" nillable="true" type="tns:ListChangeType" />
+  <xs:simpleType name="ServerStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Connecting" />
+      <xs:enumeration value="Connected" />
+      <xs:enumeration value="Disconnecting" />
+      <xs:enumeration value="Aborted" />
+      <xs:enumeration value="Disconnected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServerStatus" nillable="true" type="tns:ServerStatus" />
+</xs:schema>

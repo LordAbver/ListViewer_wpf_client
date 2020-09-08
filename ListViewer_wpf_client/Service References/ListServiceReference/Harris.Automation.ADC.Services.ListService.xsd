@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ListService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ListService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ListServiceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListServiceError" nillable="true" type="tns:ListServiceError" />
+  <xs:complexType name="ListListenerError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ListServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListListenerError" nillable="true" type="tns:ListListenerError" />
+  <xs:complexType name="ListLockedError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ListServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListLockedError" nillable="true" type="tns:ListLockedError" />
+  <xs:complexType name="EventError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ListServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EventError" nillable="true" type="tns:EventError" />
+  <xs:complexType name="ListNotEnabledError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ListServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListNotEnabledError" nillable="true" type="tns:ListNotEnabledError" />
+</xs:schema>

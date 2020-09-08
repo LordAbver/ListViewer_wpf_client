@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.ManagerService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ServiceNotExistError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ManagerServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceNotExistError" nillable="true" type="tns:ServiceNotExistError" />
+  <xs:complexType name="ManagerServiceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ServiceId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManagerServiceError" nillable="true" type="tns:ManagerServiceError" />
+  <xs:complexType name="ServiceFaultedError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ManagerServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceFaultedError" nillable="true" type="tns:ServiceFaultedError" />
+  <xs:complexType name="ServiceMissedError">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ManagerServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceMissedError" nillable="true" type="tns:ServiceMissedError" />
+  <xs:complexType name="ArrayOfServiceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceDTO" nillable="true" type="tns:ServiceDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceDTO" nillable="true" type="tns:ArrayOfServiceDTO" />
+  <xs:complexType name="ServiceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndPoint" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="HostName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hosting" type="tns:HostingType" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ServiceDependencies" nillable="true" type="q1:ArrayOfguid" />
+      <xs:element minOccurs="0" name="ServiceId" type="ser:guid" />
+      <xs:element minOccurs="0" name="State" type="tns:ServiceState" />
+      <xs:element minOccurs="0" name="Type" type="tns:ServiceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceDTO" nillable="true" type="tns:ServiceDTO" />
+  <xs:simpleType name="HostingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SelfHosting" />
+      <xs:enumeration value="IIS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HostingType" nillable="true" type="tns:HostingType" />
+  <xs:simpleType name="ServiceState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Working" />
+      <xs:enumeration value="Faulted" />
+      <xs:enumeration value="Starting" />
+      <xs:enumeration value="Stopping" />
+      <xs:enumeration value="Stopped" />
+      <xs:enumeration value="Restarting" />
+      <xs:enumeration value="Missing" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceState" nillable="true" type="tns:ServiceState" />
+  <xs:simpleType name="ServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ListService" />
+      <xs:enumeration value="AsRunService" />
+      <xs:enumeration value="DeviceService" />
+      <xs:enumeration value="ErrorReportingService" />
+      <xs:enumeration value="TimecodeService" />
+      <xs:enumeration value="DataService" />
+      <xs:enumeration value="IntegrationService" />
+      <xs:enumeration value="StorageService" />
+      <xs:enumeration value="MaterialService" />
+      <xs:enumeration value="SecurityService" />
+      <xs:enumeration value="CommercialValidationService" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceType" nillable="true" type="tns:ServiceType" />
+</xs:schema>

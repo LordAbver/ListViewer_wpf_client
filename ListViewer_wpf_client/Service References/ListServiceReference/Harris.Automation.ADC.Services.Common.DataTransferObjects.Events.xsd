@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Events" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Events" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventDTO" nillable="true" type="tns:EventDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventDTO" nillable="true" type="tns:ArrayOfEventDTO" />
+  <xs:complexType name="EventDTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="ABoxSom" nillable="true" type="q1:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="AdcEventId" type="ser:guid" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="BBoxSom" nillable="true" type="q2:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="BackupDeviceIndex" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="BackupHeadIndex" type="xs:unsignedByte" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="BackupStatus" type="q3:ExtendedStatus" />
+      <xs:element minOccurs="0" name="CompileId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" minOccurs="0" name="CompileSom" nillable="true" type="q4:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceIndex" type="xs:unsignedByte" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="Duration" nillable="true" type="q5:TimeCodeDTO" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="EventControl" nillable="true" type="q6:ArrayOfEventControlType" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="EventStatus" nillable="true" type="q7:ArrayOfEventRunStatus" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" name="EventType" type="q8:ADCEventType" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="ExtEventControl" nillable="true" type="q9:ArrayOfExtendedEventControl" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="ExtendedStatus" type="q10:ExtendedStatus" />
+      <xs:element minOccurs="0" name="HeadIndex" type="xs:unsignedByte" />
+      <xs:element name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnAirDate" type="xs:dateTime" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="OnAirTime" nillable="true" type="q11:TimeCodeDTO" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Qualifier" nillable="true" type="q12:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ReconcileKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatedPrimary" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoutingChannel" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="SecondaryData" nillable="true" type="tns:SecondaryData" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SecondaryEvents" nillable="true" type="q13:ArrayOfguid" />
+      <xs:element minOccurs="0" name="SegmentNumber" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Size" type="xs:int" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="Som" nillable="true" type="q14:TimeCodeDTO" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="TransitionEffect" type="q15:Transition" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="TransitionEffectRate" type="q16:SwitchRate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventDTO" nillable="true" type="tns:EventDTO" />
+  <xs:complexType name="SecondaryData">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="SecondaryData" nillable="true" type="tns:SecondaryData" />
+  <xs:complexType name="KeyerParams">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecondaryData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Is_sSP" type="xs:boolean" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="KeyHold" type="q17:KeyHold" />
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="KeyMatte" type="q18:MatteMod" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="KeyMod" type="q19:KeyMod" />
+          <xs:element minOccurs="0" name="KeyNumber" type="xs:unsignedByte" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="KeySource" type="q20:KeySource" />
+          <xs:element minOccurs="0" name="SSP" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KeyerParams" nillable="true" type="tns:KeyerParams" />
+  <xs:complexType name="AudioOverParams">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecondaryData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AudioOver" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Ratio" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SSP" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AudioOverParams" nillable="true" type="tns:AudioOverParams" />
+  <xs:complexType name="EventWithDataDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EventDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataBuffer" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EventWithDataDTO" nillable="true" type="tns:EventWithDataDTO" />
+  <xs:complexType name="EventProblemInformationDTO">
+    <xs:sequence>
+      <xs:element name="DeleteId" type="ser:guid" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="Duration" nillable="true" type="q21:TimeCodeDTO" />
+      <xs:element name="IdDeletedEvent" nillable="true" type="xs:string" />
+      <xs:element name="InsertId" type="ser:guid" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" name="StartTime" nillable="true" type="q22:TimeCodeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventProblemInformationDTO" nillable="true" type="tns:EventProblemInformationDTO" />
+  <xs:complexType name="ArrayOfArrayOfEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfEventDTO" nillable="true" type="tns:ArrayOfEventDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrayOfEventDTO" nillable="true" type="tns:ArrayOfArrayOfEventDTO" />
+</xs:schema>

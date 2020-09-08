@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Events" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Events" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" />
+  <xs:complexType name="ArrayOfAsRunEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AsRunEventDTO" nillable="true" type="tns:AsRunEventDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAsRunEventDTO" nillable="true" type="tns:ArrayOfAsRunEventDTO" />
+  <xs:complexType name="AsRunEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ABoxSom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADCEventId" type="ser:guid" />
+      <xs:element minOccurs="0" name="BBoxSom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="CompileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompileSom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompileTapeString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" minOccurs="0" name="EventType" type="q1:ADCEventType" />
+      <xs:element minOccurs="0" name="HardStart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ListNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="OnAirDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnAirTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReconcileKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SegmentNumber" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Som" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" minOccurs="0" name="Status" type="q2:AsRunStatus" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AsRunEventDTO" nillable="true" type="tns:AsRunEventDTO" />
+</xs:schema>

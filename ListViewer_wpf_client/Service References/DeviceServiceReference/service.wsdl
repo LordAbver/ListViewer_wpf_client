@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeviceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IDeviceService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.Configuration" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Devices" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Storage" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeviceService_IsAlive_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_IsAlive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_RegisterDeviceListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDeviceListener" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_RegisterDeviceListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDeviceListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnregisterDeviceListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterDeviceListener" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesCount" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesCount_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q1:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesCount_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q2:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesCount_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q3:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevices" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevices_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q4:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevices_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q5:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevices_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q6:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesByNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesByNumbers" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesByNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesByNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesByNumbers_DeviceNotExistErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q7:DeviceNotExistError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesByNumbers_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q8:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesByNumbers_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q9:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetDevicesByNumbers_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q10:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_RegisterConnectionStateListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterConnectionStateListener" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_RegisterConnectionStateListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterConnectionStateListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnregisterConnectionStateListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterConnectionStateListener" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSwitcherOptions" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSwitcherOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_ServiceParametersValidationErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q11:ServiceParametersValidationError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q12:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q13:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q14:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_SetSwitcherOptions_DeviceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q15:DeviceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSwitcherList" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSwitcherListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherList_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q16:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherList_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q17:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherList_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q18:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherDimensions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSwitcherDimensions" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherDimensions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSwitcherDimensionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherDimensions_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q19:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherDimensions_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q20:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherDimensions_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q21:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetSwitcherDimensions_DeviceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q22:DeviceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_DeleteStorageItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStorageItems" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_DeleteStorageItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStorageItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_DeleteStorageItems_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q23:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_DeleteStorageItems_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q24:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_DeleteStorageItems_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q25:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_ProtectStorageItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProtectStorageItems" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_ProtectStorageItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProtectStorageItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_ProtectStorageItems_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q26:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_ProtectStorageItems_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q27:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_ProtectStorageItems_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q28:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnprotectStorageItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnprotectStorageItems" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnprotectStorageItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnprotectStorageItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnprotectStorageItems_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q29:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnprotectStorageItems_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q30:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnprotectStorageItems_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q31:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStoragesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoragesList" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStoragesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoragesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStoragesList_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q32:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStoragesList_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q33:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStoragesList_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q34:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStorage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorage" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStorage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStorage_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q35:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStorage_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q36:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetStorage_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q37:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_RegisterStorageListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterStorageListener" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_RegisterStorageListener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterStorageListenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_UnregisterStorageListener_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterStorageListener" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetAvailableDeviceServers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDeviceServers" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetAvailableDeviceServers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDeviceServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetFreeDiskSpace_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFreeDiskSpace" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetFreeDiskSpace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFreeDiskSpaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetFreeDiskSpace_DeviceServerNotRunningErrorFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q38:DeviceServerNotRunningError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetFreeDiskSpace_DeviceServerNotCreatedErrorFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.ServiceErrors" name="detail" element="q39:DeviceServerNotCreatedError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_GetFreeDiskSpace_DeviceServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.DeviceService" name="detail" element="q40:DeviceServiceError" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_OnDevicesChange_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDevicesChange" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_OnDevicesUpdated_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDevicesUpdated" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_OnDevicesDeleted_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDevicesDeleted" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_OnDevicesAdded_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnDevicesAdded" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_OnConnectionStateChange_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnConnectionStateChange" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_OnStorageUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnStorageUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceService_CheckAvailability_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:CheckAvailability" />
+  </wsdl:message>
+  <wsdl:portType name="IDeviceService">
+    <wsdl:operation name="IsAlive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatableService/IsAlive" message="tns:IDeviceService_IsAlive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatableService/IsAliveResponse" message="tns:IDeviceService_IsAlive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatableService/GetVersion" message="tns:IDeviceService_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatableService/GetVersionResponse" message="tns:IDeviceService_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/RegisterDeviceListener" message="tns:IDeviceService_RegisterDeviceListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/RegisterDeviceListenerResponse" message="tns:IDeviceService_RegisterDeviceListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterDeviceListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/UnregisterDeviceListener" message="tns:IDeviceService_UnregisterDeviceListener_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevicesCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesCount" message="tns:IDeviceService_GetDevicesCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesCountResponse" message="tns:IDeviceService_GetDevicesCount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesCountDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetDevicesCount_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesCountDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetDevicesCount_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesCountDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetDevicesCount_DeviceServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetDevices" message="tns:IDeviceService_GetDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesResponse" message="tns:IDeviceService_GetDevices_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetDevices_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetDevices_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetDevices_DeviceServerNotCreatedErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevicesByNumbers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesByNumbers" message="tns:IDeviceService_GetDevicesByNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesByNumbersResponse" message="tns:IDeviceService_GetDevicesByNumbers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesByNumbersDeviceNotExistErrorFault" name="DeviceNotExistErrorFault" message="tns:IDeviceService_GetDevicesByNumbers_DeviceNotExistErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesByNumbersDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetDevicesByNumbers_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesByNumbersDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetDevicesByNumbers_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetDevicesByNumbersDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetDevicesByNumbers_DeviceServerNotCreatedErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterConnectionStateListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/RegisterConnectionStateListener" message="tns:IDeviceService_RegisterConnectionStateListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/RegisterConnectionStateListenerResponse" message="tns:IDeviceService_RegisterConnectionStateListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterConnectionStateListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/UnregisterConnectionStateListener" message="tns:IDeviceService_UnregisterConnectionStateListener_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSwitcherOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptions" message="tns:IDeviceService_SetSwitcherOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptionsResponse" message="tns:IDeviceService_SetSwitcherOptions_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptionsServiceParametersValidationErrorFault" name="ServiceParametersValidationErrorFault" message="tns:IDeviceService_SetSwitcherOptions_ServiceParametersValidationErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptionsDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_SetSwitcherOptions_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptionsDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_SetSwitcherOptions_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptionsDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_SetSwitcherOptions_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/SetSwitcherOptionsDeviceErrorFault" name="DeviceErrorFault" message="tns:IDeviceService_SetSwitcherOptions_DeviceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSwitcherList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherList" message="tns:IDeviceService_GetSwitcherList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherListResponse" message="tns:IDeviceService_GetSwitcherList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherListDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetSwitcherList_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherListDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetSwitcherList_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherListDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetSwitcherList_DeviceServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSwitcherDimensions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherDimensions" message="tns:IDeviceService_GetSwitcherDimensions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherDimensionsResponse" message="tns:IDeviceService_GetSwitcherDimensions_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherDimensionsDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetSwitcherDimensions_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherDimensionsDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetSwitcherDimensions_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherDimensionsDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetSwitcherDimensions_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetSwitcherDimensionsDeviceErrorFault" name="DeviceErrorFault" message="tns:IDeviceService_GetSwitcherDimensions_DeviceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStorageItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/DeleteStorageItems" message="tns:IDeviceService_DeleteStorageItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/DeleteStorageItemsResponse" message="tns:IDeviceService_DeleteStorageItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/DeleteStorageItemsDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_DeleteStorageItems_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/DeleteStorageItemsDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_DeleteStorageItems_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/DeleteStorageItemsDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_DeleteStorageItems_DeviceServerNotRunningErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProtectStorageItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/ProtectStorageItems" message="tns:IDeviceService_ProtectStorageItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/ProtectStorageItemsResponse" message="tns:IDeviceService_ProtectStorageItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/ProtectStorageItemsDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_ProtectStorageItems_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/ProtectStorageItemsDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_ProtectStorageItems_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/ProtectStorageItemsDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_ProtectStorageItems_DeviceServerNotCreatedErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnprotectStorageItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/UnprotectStorageItems" message="tns:IDeviceService_UnprotectStorageItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/UnprotectStorageItemsResponse" message="tns:IDeviceService_UnprotectStorageItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/UnprotectStorageItemsDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_UnprotectStorageItems_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/UnprotectStorageItemsDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_UnprotectStorageItems_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/UnprotectStorageItemsDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_UnprotectStorageItems_DeviceServerNotRunningErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoragesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetStoragesList" message="tns:IDeviceService_GetStoragesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetStoragesListResponse" message="tns:IDeviceService_GetStoragesList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetStoragesListDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetStoragesList_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetStoragesListDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetStoragesList_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetStoragesListDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetStoragesList_DeviceServerNotRunningErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetStorage" message="tns:IDeviceService_GetStorage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetStorageResponse" message="tns:IDeviceService_GetStorage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetStorageDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetStorage_DeviceServiceErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetStorageDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetStorage_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetStorageDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetStorage_DeviceServerNotCreatedErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterStorageListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/RegisterStorageListener" message="tns:IDeviceService_RegisterStorageListener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/RegisterStorageListenerResponse" message="tns:IDeviceService_RegisterStorageListener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterStorageListener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/UnregisterStorageListener" message="tns:IDeviceService_UnregisterStorageListener_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDeviceServers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetAvailableDeviceServers" message="tns:IDeviceService_GetAvailableDeviceServers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetAvailableDeviceServersResponse" message="tns:IDeviceService_GetAvailableDeviceServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeDiskSpace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceService/GetFreeDiskSpace" message="tns:IDeviceService_GetFreeDiskSpace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/GetFreeDiskSpaceResponse" message="tns:IDeviceService_GetFreeDiskSpace_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetFreeDiskSpaceDeviceServerNotRunningErrorFault" name="DeviceServerNotRunningErrorFault" message="tns:IDeviceService_GetFreeDiskSpace_DeviceServerNotRunningErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetFreeDiskSpaceDeviceServerNotCreatedErrorFault" name="DeviceServerNotCreatedErrorFault" message="tns:IDeviceService_GetFreeDiskSpace_DeviceServerNotCreatedErrorFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDeviceService/GetFreeDiskSpaceDeviceServiceErrorFault" name="DeviceServiceErrorFault" message="tns:IDeviceService_GetFreeDiskSpace_DeviceServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesChange">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/OnDevicesChange" message="tns:IDeviceService_OnDevicesChange_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesUpdated">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/OnDevicesUpdated" message="tns:IDeviceService_OnDevicesUpdated_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesDeleted">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/OnDevicesDeleted" message="tns:IDeviceService_OnDevicesDeleted_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesAdded">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/OnDevicesAdded" message="tns:IDeviceService_OnDevicesAdded_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnConnectionStateChange">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/OnConnectionStateChange" message="tns:IDeviceService_OnConnectionStateChange_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnStorageUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/OnStorageUpdate" message="tns:IDeviceService_OnStorageUpdate_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailability">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceService/CheckAvailability" message="tns:IDeviceService_CheckAvailability_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IDeviceService" type="tns:IDeviceService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IDeviceService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://tempuri.org/IHeartbeatableService/IsAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://tempuri.org/IHeartbeatableService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceListener">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/RegisterDeviceListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterDeviceListener">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/UnregisterDeviceListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevicesCount">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetDevicesCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevicesByNumbers">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetDevicesByNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceNotExistErrorFault">
+        <soap12:fault use="literal" name="DeviceNotExistErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterConnectionStateListener">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/RegisterConnectionStateListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterConnectionStateListener">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/UnregisterConnectionStateListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetSwitcherOptions">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/SetSwitcherOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceParametersValidationErrorFault">
+        <soap12:fault use="literal" name="ServiceParametersValidationErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceErrorFault">
+        <soap12:fault use="literal" name="DeviceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSwitcherList">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetSwitcherList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSwitcherDimensions">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetSwitcherDimensions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceErrorFault">
+        <soap12:fault use="literal" name="DeviceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStorageItems">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/DeleteStorageItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ProtectStorageItems">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/ProtectStorageItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnprotectStorageItems">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/UnprotectStorageItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoragesList">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetStoragesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorage">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetStorage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterStorageListener">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/RegisterStorageListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterStorageListener">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/UnregisterStorageListener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDeviceServers">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetAvailableDeviceServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeDiskSpace">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/GetFreeDiskSpace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DeviceServerNotRunningErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotRunningErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServerNotCreatedErrorFault">
+        <soap12:fault use="literal" name="DeviceServerNotCreatedErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DeviceServiceErrorFault">
+        <soap12:fault use="literal" name="DeviceServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesChange">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/OnDevicesChange" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesUpdated">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/OnDevicesUpdated" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesDeleted">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/OnDevicesDeleted" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnDevicesAdded">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/OnDevicesAdded" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnConnectionStateChange">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/OnConnectionStateChange" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnStorageUpdate">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/OnStorageUpdate" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailability">
+      <soap12:operation soapAction="http://tempuri.org/IDeviceService/CheckAvailability" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeviceService">
+    <wsdl:port name="NetTcpBinding_IDeviceService" binding="tns:NetTcpBinding_IDeviceService">
+      <soap12:address location="net.tcp://localhost:10030/Harris.Automation.ADC.Services.DeviceService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:10030/Harris.Automation.ADC.Services.DeviceService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

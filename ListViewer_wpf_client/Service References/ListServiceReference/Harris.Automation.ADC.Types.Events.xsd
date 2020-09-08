@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Events" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="ExtendedStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ready" />
+      <xs:enumeration value="OutLookAhead" />
+      <xs:enumeration value="Missed" />
+      <xs:enumeration value="RanShort" />
+      <xs:enumeration value="Skipped" />
+      <xs:enumeration value="Done" />
+      <xs:enumeration value="Requested" />
+      <xs:enumeration value="Failed" />
+      <xs:enumeration value="Inprep" />
+      <xs:enumeration value="Preroll" />
+      <xs:enumeration value="Postroll" />
+      <xs:enumeration value="ERROR" />
+      <xs:enumeration value="ONLINE" />
+      <xs:enumeration value="READ" />
+      <xs:enumeration value="SWITCHPOINT" />
+      <xs:enumeration value="NULL" />
+      <xs:enumeration value="NOSERIAL" />
+      <xs:enumeration value="FAULT" />
+      <xs:enumeration value="NOANNOT" />
+      <xs:enumeration value="BLACK" />
+      <xs:enumeration value="CB" />
+      <xs:enumeration value="PROGRAM" />
+      <xs:enumeration value="BLCKAUD" />
+      <xs:enumeration value="BAUDIO" />
+      <xs:enumeration value="PRGMAUD" />
+      <xs:enumeration value="NO_COM" />
+      <xs:enumeration value="PULLED" />
+      <xs:enumeration value="LOCAL" />
+      <xs:enumeration value="UNTHRD" />
+      <xs:enumeration value="EJECT" />
+      <xs:enumeration value="CUED" />
+      <xs:enumeration value="TSO" />
+      <xs:enumeration value="STOP" />
+      <xs:enumeration value="STOPPING" />
+      <xs:enumeration value="REWD" />
+      <xs:enumeration value="FFWD" />
+      <xs:enumeration value="RECORD" />
+      <xs:enumeration value="PLAY" />
+      <xs:enumeration value="REVJOG" />
+      <xs:enumeration value="FWDJOG" />
+      <xs:enumeration value="REWVAR" />
+      <xs:enumeration value="FWDVAR" />
+      <xs:enumeration value="REVSHTL" />
+      <xs:enumeration value="FWDSHTL" />
+      <xs:enumeration value="SLOW" />
+      <xs:enumeration value="CUEING" />
+      <xs:enumeration value="STILL" />
+      <xs:enumeration value="REJECT" />
+      <xs:enumeration value="THREAD" />
+      <xs:enumeration value="UB_PLAY" />
+      <xs:enumeration value="STANDBY" />
+      <xs:enumeration value="TENREL" />
+      <xs:enumeration value="NO_DEV" />
+      <xs:enumeration value="BUSY" />
+      <xs:enumeration value="OFFLINE" />
+      <xs:enumeration value="INITIAL" />
+      <xs:enumeration value="UNKNOWN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ExtendedStatus" nillable="true" type="tns:ExtendedStatus" />
+  <xs:complexType name="ArrayOfEventControlType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventControlType" type="tns:EventControlType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventControlType" nillable="true" type="tns:ArrayOfEventControlType" />
+  <xs:simpleType name="EventControlType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AutoPlay" />
+      <xs:enumeration value="AutoThread" />
+      <xs:enumeration value="AutoSwitch" />
+      <xs:enumeration value="AutoRecord" />
+      <xs:enumeration value="AutoTimed" />
+      <xs:enumeration value="AutoException" />
+      <xs:enumeration value="AutoUpcount" />
+      <xs:enumeration value="ManualStart" />
+      <xs:enumeration value="AutoContactStart" />
+      <xs:enumeration value="AutoMarkTime" />
+      <xs:enumeration value="AutoDeadroll" />
+      <xs:enumeration value="SwitchVideoOnly" />
+      <xs:enumeration value="SwitchAudioOnly" />
+      <xs:enumeration value="SwitchRejoin" />
+      <xs:enumeration value="UserBitOnly" />
+      <xs:enumeration value="SwitchAudioVideoIndependent" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EventControlType" nillable="true" type="tns:EventControlType" />
+  <xs:complexType name="ArrayOfEventRunStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventRunStatus" type="tns:EventRunStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventRunStatus" nillable="true" type="tns:ArrayOfEventRunStatus" />
+  <xs:simpleType name="EventRunStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Done" />
+      <xs:enumeration value="Running" />
+      <xs:enumeration value="PlayedNextVideo" />
+      <xs:enumeration value="Prerolled" />
+      <xs:enumeration value="Postrolled" />
+      <xs:enumeration value="IDTitleMismatch" />
+      <xs:enumeration value="StandbyOn" />
+      <xs:enumeration value="NotPlayed" />
+      <xs:enumeration value="RanShort" />
+      <xs:enumeration value="Skipped" />
+      <xs:enumeration value="Prepared" />
+      <xs:enumeration value="NotSwitched" />
+      <xs:enumeration value="Previewed" />
+      <xs:enumeration value="RollingNext" />
+      <xs:enumeration value="Short" />
+      <xs:enumeration value="Long" />
+      <xs:enumeration value="Preempted" />
+      <xs:enumeration value="SyncSkipped" />
+      <xs:enumeration value="Reserved3" />
+      <xs:enumeration value="Reserved4" />
+      <xs:enumeration value="Reserved5" />
+      <xs:enumeration value="Reserved6" />
+      <xs:enumeration value="Reserved7" />
+      <xs:enumeration value="Reserved8" />
+      <xs:enumeration value="Reserved9" />
+      <xs:enumeration value="Reserved10" />
+      <xs:enumeration value="Reserved11" />
+      <xs:enumeration value="Reserved12" />
+      <xs:enumeration value="Reserved13" />
+      <xs:enumeration value="Reserved14" />
+      <xs:enumeration value="Reserved15" />
+      <xs:enumeration value="Reserved16" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EventRunStatus" nillable="true" type="tns:EventRunStatus" />
+  <xs:simpleType name="ADCEventType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedShort" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Primary" />
+      <xs:enumeration value="Break">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Logo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BreakSync">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">33</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Secondary">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryKey">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">131</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryTransitionKey">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">132</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryBacktime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">133</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryWithKey">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">134</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryBacktimeGPI">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">136</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryGPI">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">137</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryTransitionAudioOver">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">144</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryAudioOver">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">145</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryWithAudioOver">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">146</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryData">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">160</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondarySystem">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">164</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondarySystemBacktime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">165</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryRecordSwitch">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">176</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondarySourceSwitch">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">177</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryAudioROut">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">178</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryRecordDevice">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">181</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryComment">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">224</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryCompileID">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">225</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryAppendFlag">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">226</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryBarterSpot">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">227</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PrimaryWithData">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryWithData">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">384</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryWithDataBacktime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">389</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryDataWithData">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">416</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryWithDataWithKey">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">390</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryWithDataWithAudioOver">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">402</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PrimaryReq">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">768</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecondaryReq">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">896</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Invalid">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65535</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ADCEventType" nillable="true" type="tns:ADCEventType" />
+  <xs:complexType name="ArrayOfExtendedEventControl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedEventControl" type="tns:ExtendedEventControl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtendedEventControl" nillable="true" type="tns:ArrayOfExtendedEventControl" />
+  <xs:simpleType name="ExtendedEventControl">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Reserved1" />
+      <xs:enumeration value="Reserved2" />
+      <xs:enumeration value="Reserved3" />
+      <xs:enumeration value="Reserved4" />
+      <xs:enumeration value="Reserved5" />
+      <xs:enumeration value="Reserved6" />
+      <xs:enumeration value="Reserved7" />
+      <xs:enumeration value="Reserved8" />
+      <xs:enumeration value="Reserved9" />
+      <xs:enumeration value="Reserved10" />
+      <xs:enumeration value="AudibleAutoMarktime" />
+      <xs:enumeration value="FrameDropped" />
+      <xs:enumeration value="CountedRoundDropFrame" />
+      <xs:enumeration value="StartEventEndTimed" />
+      <xs:enumeration value="StartEventBackTimed" />
+      <xs:enumeration value="MatchPrimaryDuration" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ExtendedEventControl" nillable="true" type="tns:ExtendedEventControl" />
+  <xs:simpleType name="KeyHold">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LoseKey" />
+      <xs:enumeration value="HoldKey" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KeyHold" nillable="true" type="tns:KeyHold" />
+  <xs:simpleType name="MatteMod">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MatteOff" />
+      <xs:enumeration value="MatteOn" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MatteMod" nillable="true" type="tns:MatteMod" />
+  <xs:simpleType name="KeyMod">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Shadow" />
+      <xs:enumeration value="DropShadow" />
+      <xs:enumeration value="Border" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KeyMod" nillable="true" type="tns:KeyMod" />
+  <xs:simpleType name="KeySource">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KeySelf" />
+      <xs:enumeration value="External" />
+      <xs:enumeration value="Chroma" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KeySource" nillable="true" type="tns:KeySource" />
+  <xs:simpleType name="Transition">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cut" />
+      <xs:enumeration value="Mix" />
+      <xs:enumeration value="Wipe" />
+      <xs:enumeration value="FadeFade" />
+      <xs:enumeration value="CutFade" />
+      <xs:enumeration value="FadeCut" />
+      <xs:enumeration value="MixedAV" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Transition" nillable="true" type="tns:Transition" />
+  <xs:simpleType name="SwitchRate">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Slow" />
+      <xs:enumeration value="Medium" />
+      <xs:enumeration value="Fast" />
+      <xs:enumeration value="FastCut" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SwitchRate" nillable="true" type="tns:SwitchRate" />
+  <xs:simpleType name="InsertPlaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AtListBegin" />
+      <xs:enumeration value="AfterGuid" />
+      <xs:enumeration value="AtListEnd" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InsertPlaceType" nillable="true" type="tns:InsertPlaceType" />
+</xs:schema>

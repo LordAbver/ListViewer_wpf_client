@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="99d9b6dd-c5a8-4544-ad29-d684942a339e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b4323521-8951-457f-a449-f87c7d459688" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c0a996e5-d31f-45f2-a234-20e674bbb705" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="93c14716-6891-4bbe-a935-5a4a08122203" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Services.Common.Configuration.xsd" MetadataType="Schema" ID="74b33163-18f3-430d-b50e-627b13a7a4c3" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="d583fe61-8c3a-4b1b-b8c7-ae22116c834a" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="b616e9a6-1e75-45bd-a036-07ba0877fb04" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Types.ServiceErrors.xsd" MetadataType="Schema" ID="9ad24f2a-5141-4718-862a-3cb8bf927dc4" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Services.DeviceService.xsd" MetadataType="Schema" ID="02470ec5-93be-4b7b-94f3-02a1cb521759" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Services.Common.DataTransferObjects.xsd" MetadataType="Schema" ID="8c076279-f92e-4b2a-86b3-27752a08549b" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Types.Devices.xsd" MetadataType="Schema" ID="267fae77-9725-4b6a-9945-63e5d61ff803" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Services.Common.DataTransferObjects.Timecode.xsd" MetadataType="Schema" ID="909f337f-ed51-4292-88e7-5da8e037eee4" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Types.xsd" MetadataType="Schema" ID="06d0ee76-63e5-42c2-9220-0c0dc8a8b0cb" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+    <MetadataFile FileName="Harris.Automation.ADC.Types.Storage.xsd" MetadataType="Schema" ID="d373be7b-a093-49b2-b8ea-70cabeef1ab7" SourceId="1" SourceUrl="net.tcp://localhost:10032/Harris.Automation.ADC.Services.DeviceService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

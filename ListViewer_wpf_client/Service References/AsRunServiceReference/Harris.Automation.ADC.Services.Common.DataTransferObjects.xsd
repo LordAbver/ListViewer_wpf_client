@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Services.Common.DataTransferObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AsRunStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AiredWithoutDiscrepancy" />
+      <xs:enumeration value="TechnicalDifficulty" />
+      <xs:enumeration value="DidNotAir" />
+      <xs:enumeration value="AiredWithDurationDiscrepancy" />
+      <xs:enumeration value="AiredWithContentDiscrepancy" />
+      <xs:enumeration value="Preempted" />
+      <xs:enumeration value="JoinedInProgress" />
+      <xs:enumeration value="InsertedByOperator" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="MissingContent" />
+      <xs:enumeration value="Skipped" />
+      <xs:enumeration value="AsRunStatusMax" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AsRunStatus" nillable="true" type="tns:AsRunStatus" />
+</xs:schema>

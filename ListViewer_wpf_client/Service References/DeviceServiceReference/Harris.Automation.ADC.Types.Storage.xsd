@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Storage" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Harris.Automation.ADC.Types.Storage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="BinNoticeEnum">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoNotice" />
+      <xs:enumeration value="BinShouldEject" />
+      <xs:enumeration value="ExternalLoad" />
+      <xs:enumeration value="BinNotValid" />
+      <xs:enumeration value="BinToSecondary" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BinNoticeEnum" nillable="true" type="tns:BinNoticeEnum" />
+  <xs:complexType name="ArrayOfStorageFlagEnum">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StorageFlagEnum" type="tns:StorageFlagEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStorageFlagEnum" nillable="true" type="tns:ArrayOfStorageFlagEnum" />
+  <xs:simpleType name="StorageFlagEnum">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MaterialInCacheQueue" />
+      <xs:enumeration value="MaterialNotRecorded" />
+      <xs:enumeration value="MaterialInArchive" />
+      <xs:enumeration value="MaterialDeleteProtected" />
+      <xs:enumeration value="MaterialNotPlay" />
+      <xs:enumeration value="MaterialNotTransfer" />
+      <xs:enumeration value="MaterialNotArchive" />
+      <xs:enumeration value="MaterialType422" />
+      <xs:enumeration value="StorageFlagMax" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StorageFlagEnum" nillable="true" type="tns:StorageFlagEnum" />
+</xs:schema>
